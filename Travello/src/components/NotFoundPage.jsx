@@ -1,5 +1,8 @@
 import React from 'react';
-import { useNavigate } from 'react-router-dom'; 
+
+import { useNavigate } from 'react-router-dom'; // Use useNavigate instead of useHistory
+
+
 
 const NotFoundPage = () => {
   const navigate = useNavigate();
