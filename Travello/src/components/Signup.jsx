@@ -36,11 +36,50 @@ const Signup = () => {
       return;
     }
 
-   
+    try {
+      const response = await axios.post('http://localhost:5000/api/auth/register', {
+        firstName: formData.firstName,
+        lastName: formData.lastName,
+        email: formData.email,
+        password: formData.password,
+        location: formData.location,
+        country: formData.country,
+        gender: formData.gender,
+        dateOfBirth: formData.dateOfBirth,
+        phone: formData.phone,
+      },
+      {
+        headers: {
+            "Content-Type": "application/json",
+        },
+        withCredentials: true,
+    });
+
+      console.log('Server Response:', response.data);
+      toast.success(response.data.message);
+      navigate('/dashboard');
+    } catch (error) {
+      console.error('Error during registration:', error.response ? error.response.data : error.message);
+      toast.error('Registration Failed');
+    }
   };
 
   const handleGoogleSignIn = async () => {
-    
+    try {
+      const result = await signInWithPopup(auth, googleProvider);
+      const token = await result.user.getIdToken();
+
+      const response = await axios.post('http://localhost:5000/api/auth/google', {
+        token,
+      }, {
+        withCredentials: true,  // Send cookies to server
+      });
+      toast.success("Logged in ! ")
+      console.log('Google Sign-In success:', response.data);
+      navigate('/dashboard');
+    } catch (error) {
+      console.error('Error with Google Sign-In:', error.message);
+    }
   };
 
   return (
