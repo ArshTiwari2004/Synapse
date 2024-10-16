@@ -3,12 +3,13 @@ import mongoose from 'mongoose';
 import cors from 'cors';
 import cookieParser from 'cookie-parser';
 import authRoutes from './routes/auth.routes.js';
+import InfoRoutes from './routes/user.routes.js';
 import './config/dotenv.js';
 
 const app = express();
 app.use(cors({
     origin: 'http://localhost:5173', 
-    credentials: true,               
+    credentials: true,                
   }));
 
 app.use(express.json());
@@ -23,6 +24,7 @@ mongoose.connect(process.env.MONGO_URI, {
     .catch((err) => console.error(err));
 
 app.use('/api/auth', authRoutes);
+app.use('/api/user', InfoRoutes);
 
 app.get("/",(req,res)=>{
     res.send("Testing")

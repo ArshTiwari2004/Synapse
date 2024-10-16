@@ -100,5 +100,18 @@ export const googleSignIn = async (req, res) => {
     }
 };
 
+export const logoutUser = (req, res) => {
+    // Clear the cookie that contains the token
+    // res.clearCookie('token', {
+    //     httpOnly: true,
+    // });
+    res.status(200).cookie("token","",{
+        expires: new Date(Date.now()),
+        sameSite: process.env.NODE_ENV === "Development" ? "lax" : "none",
+        secure: process.env.NODE_ENV === "Development" ? false : true ,
+    }).json({ message: 'Logout successful' });
+    // res.status(200).json({ message: 'Logout successful' });
+};
+
 
 export { registerUser, loginUser };
