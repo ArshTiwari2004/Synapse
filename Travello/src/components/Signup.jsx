@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import axios from 'axios';
-import countries from './countries';
+// import countries from './countries';
 import { HiUser, HiMail, HiLockClosed, HiPhone } from 'react-icons/hi';
 import { FcGoogle } from 'react-icons/fc';
 import { useNavigate } from 'react-router-dom';
