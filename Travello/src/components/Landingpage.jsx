@@ -1,78 +1,53 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { FaHome, FaMapMarkedAlt, FaTrophy, FaUserAlt } from "react-icons/fa";
+import { FaHome, FaMapMarkedAlt, FaTrophy, FaUserAlt, FaPlane, FaMap, FaStar, FaUsers, FaCompass, FaMedal, FaCoins, FaGlobe } from "react-icons/fa";
 import { motion } from "framer-motion";
-import Typewriter from "typewriter-effect";
-import Footer from './Footer';
-import { FaPlane, FaMap, FaStar, FaUsers, FaCompass, FaMedal, FaCoins, FaGlobe } from "react-icons/fa"; // Import additional icons
+import Typewriter from 'typewriter-effect';
 
 const LandingPage = () => {
   return (
-    <div>
+    <div className="bg-off-white"> 
       {/* Hero Section */}
-      <div className="relative h-screen bg-white">
-        {/* Main content, including header and landing page text */}
+      <div className="relative h-screen">
         <div className="relative z-10">
           {/* Header Section */}
           <motion.header
-            className="absolute top-0 w-full p-4 z-20 bg-white"
+            className="absolute top-0 w-full p-4 z-20 bg-sky-blue"  
             initial={{ opacity: 0, y: -50 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5 }}
           >
             <div className="container mx-auto flex justify-between items-center">
-              {/* Travello Logo with Typewriter Effect */}
               <motion.h1
-                className="text-4xl font-extrabold tracking-wide text-emerald-900 font-lobster"
+                className="text-4xl font-extrabold tracking-wide text-off-white font-lobster"  
                 whileHover={{ scale: 1.1 }}
               >
-                <Typewriter
-                  options={{
-                    strings: ["Travello"],
-                    autoStart: true,
-                    loop: true,
-                    delay: 100,
-                  }}
-                />
+                Travello
               </motion.h1>
 
-              {/* Navigation Links */}
               <nav className="flex space-x-6 items-center">
-                <Link
-                  to="/"
-                  className="text-lg font-medium text-emerald-900 hover:text-blue-200 transition font-montserrat"
-                >
+                <Link to="/" className="text-lg font-medium text-off-white hover:text-light-blue transition font-montserrat"> {/* Light Blue hover */}
                   <FaHome className="inline mr-1" /> Home
                 </Link>
                 <Link
                   to="/discover"
-                  className="text-lg font-medium text-emerald-900 hover:text-blue-200 transition font-montserrat"
+                  className="text-lg font-medium text-white hover:text-blue-200 transition font-montserrat"
                 >
-                  <FaMapMarkedAlt className="inline mr-1" /> Discover
+                  <FaMapMarkedAlt className="inline mr-1" /> About Us
                 </Link>
                 <Link
                   to="/leaderboard"
-                  className="text-lg font-medium text-emerald-900 hover:text-blue-200 transition font-montserrat"
+                  className="text-lg font-medium text-white hover:text-blue-200 transition font-montserrat"
                 >
-                  <FaTrophy className="inline mr-1" /> Leaderboard
+                  <FaTrophy className="inline mr-1" /> Popular Monuments
                 </Link>
-                <Link
-                  to="/profile"
-                  className="text-lg font-medium text-emerald-900 hover:text-blue-200 transition font-montserrat"
-                >
+                <Link to="/profile" className="text-lg font-medium text-off-white hover:text-light-blue transition font-montserrat">
                   <FaUserAlt className="inline mr-1" /> Profile
                 </Link>
-                {/* Sign Up and Sign In Buttons */}
-                <Link
-                  to="/signup"
-                  className="px-4 py-2 border border-emerald-900 text-emerald-900 bg-white rounded-lg transition duration-300 hover:bg-emerald-900 hover:text-white"
-                >
+                <Link to="/signup" className="px-4 py-2 border border-off-white text-off-white bg-sky-blue rounded-lg transition duration-300 hover:bg-light-blue hover:text-off-white"> {/* Sky Blue background with Light Blue hover */}
                   Sign Up
                 </Link>
-                <Link
-                  to="/signin"
-                  className="px-4 py-2 border border-emerald-900 text-emerald-900 bg-white rounded-lg transition duration-300 hover:bg-emerald-900 hover:text-white"
-                >
+                <Link to="/signin" className="px-4 py-2 border border-off-white text-off-white bg-sky-blue rounded-lg transition duration-300 hover:bg-light-blue hover:text-off-white">
                   Sign In
                 </Link>
               </nav>
@@ -81,49 +56,57 @@ const LandingPage = () => {
 
           {/* Split Screen Layout */}
           <div className="flex h-full pt-20">
-            {/* Left Side - Main Text */}
             <div className="w-1/2 flex flex-col justify-center items-start pl-16">
-              <h2 className="text-6xl font-extrabold text-emerald-900 mb-4  leading-tight">
+              <h2 className="text-6xl font-extrabold text-teal-green mb-4 leading-tight"> {/* Teal Green text */}
                 Let's Discover the World Together
               </h2>
-              <p className="text-4xl text-emerald-800 mb-8 font-playfair font-bold">
-                Let us take you away on your best trip ever
-              </p>
 
-              {/* Get Started Button */}
+              <motion.p className="text-4xl text-teal-green mb-8 font-playfair font-bold"
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ duration: 1 }}
+              >
+                <Typewriter
+                  options={{
+                    strings: ["Let us take you away on your best trip ever"],
+                    autoStart: true,
+                    loop: true,
+                    delay: 100,
+                  }}
+                />
+              </motion.p>
+
               <motion.button
-                className="px-8 py-4 text-lg font-semibold border border-emerald-800 text-emerald-800 rounded-lg hover:bg-emerald-900 hover:text-white transition-all duration-300"
+                className="px-8 py-4 text-lg font-semibold border border-light-blue text-light-blue rounded-lg bg-off-white hover:bg-light-blue hover:text-off-white transition-all duration-300"  // Light Blue border and text with Light Blue hover
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
               >
-                Lets Explore!
+                Let's Explore!
               </motion.button>
 
-              {/* Unique Travel Statistics Below the Button */}
-              <div className="flex justify-between mt-8 text-emerald-600 text-lg w-full">
+              <div className="flex justify-between mt-8 text-teal-green text-lg w-full">  {/* Teal Green text */}
                 <div className="flex items-center space-x-2">
-                  <FaMap className="text-2xl" /> {/* Icon for Destinations */}
+                  <FaMap className="text-2xl" />
                   <span> 100+ Destinations</span>
                 </div>
                 <div className="flex items-center space-x-2">
-                  <FaPlane className="text-2xl" /> {/* Icon for Visits */}
+                  <FaPlane className="text-2xl" />
                   <span> 100+ Visits</span>
                 </div>
                 <div className="flex items-center space-x-2">
-                  <FaStar className="text-2xl" /> {/* Icon for Reviews */}
+                  <FaStar className="text-2xl" />
                   <span> 500+ Reviews</span>
                 </div>
                 <div className="flex items-center space-x-2">
-                  <FaUsers className="text-2xl" /> {/* Icon for Activities */}
+                  <FaUsers className="text-2xl" />
                   <span>300+ Activities</span>
                 </div>
               </div>
             </div>
 
-            {/* Right Side - Image Component */}
             <div className="w-1/2 h-full flex justify-center items-center">
               <img
-                src="imag1.jpg" // Make sure to replace with your actual image path
+                src="imag1.jpg"
                 alt="Travel Destination"
                 className="w-2/3 h-auto object-cover rounded-lg transform transition-all duration-500 hover:scale-105"
               />
@@ -131,8 +114,7 @@ const LandingPage = () => {
           </div>
         </div>
 
-        {/* Horizontal Section with Icons and Words */}
-        <div className="flex justify-center items-center mt-12 space-x-12 text-emerald-900 text-2xl font-bold">
+        <div className="flex justify-center items-center mt-12 space-x-12 text-teal-green text-2xl font-bold">  {/* Teal Green text */}
           <motion.div whileHover={{ scale: 1.2 }} className="flex flex-col items-center">
             <FaCompass className="text-4xl" />
             <span>Explore</span>
@@ -149,12 +131,9 @@ const LandingPage = () => {
             <FaGlobe className="text-4xl" />
             <span>Experience</span>
           </motion.div>
-          
         </div>
       </div>
-    
-  </div>
-      
+    </div>
   );
 };
 
