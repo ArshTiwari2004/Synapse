@@ -1,8 +1,8 @@
 # Manipal Hackathon 2024 README Template
 
-**Team Name:** `<Insert Team Name>`
+**Team Name:** `Synapse`
 
-**Problem Statement:** `<Insert Problem Statement>`
+**Problem Statement:** `G-2: Tourism often lacks engagement and interactive experiences, leading to missed opportunities for travelers to discover unique local attractions and fully immerse themselves in local culture. Design a sophisticated gamified tourism application that motivates users to thoroughly explore their destination by earning points through uncovering hidden attractions and completing challenges and quests such as uploading photos taken from specific angles to match reference images. The application should also feature leaderboards, rewards, and integrated social sharing capabilities.`
 
 ## 📜 Introduction
 
@@ -26,11 +26,6 @@ Website:
 
 🌐 Website link: https://example.com
 
-📱 App's APK file location: [`android/build/my-app.apk`](android/build/my-app.apk)
-
-OR
-
-📱 Play store link: https://play.google.com/store/apps/details?id=com.digilocker.android
 
 ## 📦 Instructions For Local Deployment With Docker (Optional)
 
