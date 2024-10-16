@@ -26,11 +26,6 @@ Website:
 
 🌐 Website link: https://example.com
 
-📱 App's APK file location: [`android/build/my-app.apk`](android/build/my-app.apk)
-
-OR
-
-📱 Play store link: https://play.google.com/store/apps/details?id=com.digilocker.android
 
 ## 📦 Instructions For Local Deployment With Docker (Optional)
 
