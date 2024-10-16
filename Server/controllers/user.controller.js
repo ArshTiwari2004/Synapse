@@ -2,6 +2,7 @@ import User from "../models/user.model.js";
 import bcrypt from 'bcrypt';
 import jwt from 'jsonwebtoken';
 import { validationResult } from 'express-validator';
+import { verifyFirebaseToken } from '../Firebase/firebase.js';
 
 const registerUser = async (req, res) => {
     const { firstName, lastName, email, password, country, phone, gender, dateOfBirth } = req.body;
@@ -69,5 +70,35 @@ const loginUser = async (req, res) => {
         res.status(500).json({ error: error.message });
     }
 };
+
+export const googleSignIn = async (req, res) => {
+    const { token } = req.body;
+
+    try {
+        const decodedToken = await verifyFirebaseToken(token);
+        const { email, name, uid } = decodedToken;
+
+        let user = await GoogleUser.findOne({ email });
+
+        if (!user) {
+            user = new GoogleUser({
+                email,
+                name,
+                googleId: uid,  // Firebase UID
+            });
+
+            await user.save();
+        }
+
+        res.status(200).json({
+            message: 'Google Sign-In successful',
+            user,
+        });
+    } catch (error) {
+        console.error('Error with Google Sign-In:', error.message);
+        res.status(400).json({ message: 'Google Sign-In failed' });
+    }
+};
+
 
 export { registerUser, loginUser };
