@@ -23,11 +23,46 @@ const Login = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    
+    try {
+      const response = await axios.post('http://localhost:5000/api/auth/login', formData, {
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        withCredentials: true,
+      });
+
+      console.log(response)
+
+      const { token, user } = response.data;
+
+      localStorage.setItem('token', token);
+      localStorage.setItem('user', JSON.stringify(user));
+
+      toast.success("Login Successful");
+      navigate('/dashboard');
+
+    } catch (error) {
+      console.error('Login error:', error);
+      toast.error("Login failed: " + error.response?.data?.message || "An error occurred");
+    }
   };
 
   const handleGoogleSignIn = async () => {
-   
+    try {
+      const result = await signInWithPopup(auth, googleProvider);
+      const token = await result.user.getIdToken();
+
+      const response = await axios.post('http://localhost:5000/api/auth/google', {
+        token,
+      }, {
+        withCredentials: true,  // Send cookies 
+      });
+      toast.success("Logged in ! ")
+      console.log('Google Sign-In success:', response.data);
+      navigate('/dashboard');
+    } catch (error) {
+      console.error('Error with Google Sign-In:', error.message);
+    }
   };
 
   return (
