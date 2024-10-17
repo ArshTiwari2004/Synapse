@@ -34,7 +34,7 @@ const Dashboard = () => {
             title: 'Challenges & Quests',
             description: 'Complete exciting photo challenges and earn rewards!',
             image: 'challenges.jpeg',
-            link: '/challenges',
+            link: '/Challenge',
             icon: <FaCamera size={45} className="text-[#ff6347]" />,
         },
         {
@@ -125,8 +125,16 @@ const Dashboard = () => {
                         <Link to="/my-badges" className="text-white text-lg font-semibold hover:bg-[#00bd9d] p-3 rounded-md flex items-center transition ease-in-out duration-300">
                             <FaTrophy className="mr-3" /> My Badges
                         </Link>
-                        <Link to="/challenge" className="text-white text-lg font-semibold hover:bg-[#00bd9d] p-3 rounded-md flex items-center transition ease-in-out duration-300">
+
+                        <Link to="/Challenge" className="text-white text-lg font-semibold hover:bg-[#00bd9d] p-3 rounded-md flex items-center transition ease-in-out duration-300">
+
                             <FaTrophy className="mr-3" /> My Challenges
+                        </Link>
+                        <Link to="/localculture" className="text-white text-lg font-semibold hover:bg-[#00bd9d] p-3 rounded-md flex items-center transition ease-in-out duration-300">
+                            <FaLeaf  className="mr-3" /> Local Immersion
+                        </Link>
+                        <Link to="/offline-mode" className="text-white text-lg font-semibold hover:bg-[#00bd9d] p-3 rounded-md flex items-center transition ease-in-out duration-300">
+                            <FaDownload className="mr-3" /> Offline Mode
                         </Link>
                     </div>
                 </div>
@@ -188,4 +196,5 @@ const Dashboard = () => {
         </div>
     );
 };
+
 export default Dashboard;

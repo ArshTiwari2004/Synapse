@@ -29,13 +29,20 @@ import HiddenAttractions from "./components/Hiddenattractions";
 // import Challenge from "./components/Challenge";
 import Leaderboard from "./components/Leaderboard";
 import NotFoundPage from "./components/NotFoundPage";
+
 import Challenge from "./components/Challenge.jsx";
+
+
+import AchievementSection from "./components/Acheivemnt";
+import BlogSection from "./components/Blog";
+import Newsletter from "./components/Newsletter";
 
 
 
 
 
 const App = () => {
+
   return (
     <AuthProvider>
       <Router>
@@ -100,7 +107,10 @@ const Landing = () => {
     <div className="flex flex-col">
       <LandingPage />
       <About />
+      <AchievementSection />
       <ReviewSection />
+      <BlogSection />
+      <Newsletter />
     </div>
   );
 };
