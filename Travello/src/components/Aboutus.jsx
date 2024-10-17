@@ -5,7 +5,7 @@ import Carousel from './Carousel';
 
 const About = () => {
   return (
-    <div className="py-16 text-center bg-off-white mt-8"> {/* Off-white background */}
+    <div className="py-16 text-center bg-off-white mt-8" id='about'> {/* Off-white background */}
       <div className="container mx-auto">
         <h2 className="text-4xl font-bold mb-6 text-teal-green" id="about-section"> {/* Teal Green heading */}
           About Our Gamified Tourism Platform
@@ -17,10 +17,7 @@ const About = () => {
         <p className="mt-6 text-lg text-gray-700 max-w-3xl mx-auto">
           Our platform is designed to revolutionize the travel experience by guiding you to hidden attractions and cultural experiences through interactive challenges. We integrate gamification with AI-powered personalization to create dynamic itineraries that adapt to your interests and real-time conditions, making every journey a memorable adventure.
         </p>
-
-        {/* Feature Boxes */}
         <div className="mt-12 grid grid-cols-1 md:grid-cols-3 gap-8 max-w-5xl mx-auto">
-          {/* Box 1: Hidden Attractions Maps */}
           <div className="bg-blue-200 shadow-lg rounded-lg p-6">
             <FaMapMarkerAlt className="text-4xl text-blue-600 mx-auto mb-4" />
             <h3 className="text-xl font-semibold text-gray-800 mb-2">Hidden Attractions Maps</h3>
@@ -83,5 +80,6 @@ const About = () => {
     </div>
   );
 };
+
 
 export default About;

@@ -1,74 +1,8 @@
 import React, { useState, useEffect } from 'react';
+import axios from 'axios'; // Using axios to fetch data from the backend
 import { useNavigate } from 'react-router-dom';
-
 import { motion } from 'framer-motion';
 import { Facebook, Twitter, Instagram, Share2, Filter, ArrowUpDown, Award, Lock, ChevronRight } from 'lucide-react';
-
-// Sample badge data for display purposes
-const sampleBadges = [
-  {
-    id: 1,
-    name: 'Explorer',
-    description: 'Awarded for exploring 5 new destinations.',
-    category: 'exploration',
-    rarity: 'common',
-    points: 10,
-    earned: true,
-    earnedDate: '2023-10-01',
-    difficulty: 2,
-    progress: 100,
-    criteria: ['Visit 5 destinations', 'Complete 3 location-based tasks'],
-  },
-  {
-    id: 2,
-    name: 'Culture Enthusiast',
-    description: 'Engaged in 3 cultural events.',
-    category: 'cultural',
-    rarity: 'uncommon',
-    points: 20,
-    earned: false,
-    progress: 60,
-    difficulty: 3,
-    criteria: ['Attend 3 cultural events', 'Participate in at least one local festival'],
-  },
-  {
-    id: 3,
-    name: 'Challenge Master',
-    description: 'Completed 10 unique challenges.',
-    category: 'challenge',
-    rarity: 'rare',
-    points: 30,
-    earned: true,
-    earnedDate: '2023-09-15',
-    difficulty: 4,
-    progress: 100,
-    criteria: ['Finish 10 different challenges', 'Achieve a score of 80% or higher'],
-  },
-  {
-    id: 4,
-    name: 'Social Butterfly',
-    description: 'Connected with 20 new people.',
-    category: 'social',
-    rarity: 'epic',
-    points: 50,
-    earned: false,
-    progress: 40,
-    difficulty: 5,
-    criteria: ['Connect with 20 new people', 'Start 5 new conversations'],
-  },
-  {
-    id: 5,
-    name: 'Milestone Achiever',
-    description: 'Reached a major milestone in achievements.',
-    category: 'milestone',
-    rarity: 'legendary',
-    points: 100,
-    earned: false,
-    progress: 25,
-    difficulty: 6,
-    criteria: ['Achieve 5 significant goals', 'Reach the highest level in a challenge'],
-  },
-];
 
 const badgeCategories = [
   { id: 'all', name: 'All Categories', icon: '📜' },
@@ -88,18 +22,27 @@ const rarityLevels = {
 };
 
 const Badges = () => {
-  const [badges, setBadges] = useState(sampleBadges);
-  const [filteredBadges, setFilteredBadges] = useState(sampleBadges);
+  const [badges, setBadges] = useState([]);
+  const [filteredBadges, setFilteredBadges] = useState([]);
   const [selectedCategory, setSelectedCategory] = useState('all');
   const [sortBy, setSortBy] = useState('recent');
   const [selectedBadge, setSelectedBadge] = useState(null);
 
   const navigate = useNavigate();
 
-  const handleNavigate = () => {
-    navigate('/challenges');
-  };
-
+  // Fetch badges data from the backend
+  useEffect(() => {
+    const fetchBadges = async () => {
+      try {
+        const response = await axios.get('/api/user/badges'); // Replace with your API endpoint
+        setBadges(response.data);
+        setFilteredBadges(response.data);
+      } catch (error) {
+        console.error('Error fetching badges:', error);
+      }
+    };
+    fetchBadges();
+  }, []);
 
   useEffect(() => {
     let sorted = [...badges];
@@ -125,8 +68,25 @@ const Badges = () => {
   }, [badges, selectedCategory, sortBy]);
 
   const handleShare = (platform, badge) => {
-    console.log(`Sharing ${badge.name} on ${platform}`);
-    alert(`Sharing ${badge.name} on ${platform}`);
+    const shareMessage = `Hey Fam! I have earned a new badge on Travello: ${badge.name}. Share your badge and win exciting prizes! Don't forget to mention Travello. Happy Travelling!`;
+    let shareUrl = '';
+
+    switch (platform) {
+      case 'Facebook':
+        shareUrl = `https://www.facebook.com/sharer/sharer.php?u=https://travello.com&quote=${encodeURIComponent(shareMessage)}`;
+        break;
+      case 'Twitter':
+        shareUrl = `https://twitter.com/intent/tweet?text=${encodeURIComponent(shareMessage)}`;
+        break;
+      case 'Instagram':
+        alert('Instagram sharing is currently available only through the app. Please copy and paste the message.');
+        break;
+      default:
+        break;
+    }
+    if (shareUrl) {
+      window.open(shareUrl, '_blank');
+    }
   };
 
   const BadgeCard = ({ badge }) => (
@@ -223,16 +183,11 @@ const Badges = () => {
         </div>
       )}
 
-      <div className="text-center mt-8">
-        <button  onClick={handleNavigate}
-        className="px-4 py-2 bg-indigo-600 text-white rounded-md shadow-md hover:bg-indigo-500 transition ease-in-out duration-200">
-          <ChevronRight size={20} className="inline-block mr-2" />
-          Explore Related Challenges
-        </button>
+      <div className="mt-8 flex justify-center items-center">
+        <ChevronRight className="text-indigo-600" size={36} />
       </div>
     </div>
   );
 };
 
 export default Badges;
-

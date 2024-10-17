@@ -9,32 +9,32 @@ import {
 } from 'react-icons/fa';
 
 const Dashboard = () => {
-    const showNotification = () => {
-        toast.success("Welcome to the Dashboard! Explore all the amazing features!", {
-            position: "top-center",
-            autoClose: 3000,
-            hideProgressBar: true,
-            theme: "dark",
-        });
-    };
+    // const showNotification = () => {
+    //     toast.success("Welcome to the Dashboard! Explore all the amazing features!", {
+    //         position: "top-center",
+    //         autoClose: 3000,
+    //         hideProgressBar: true,
+    //         theme: "dark",
+    //     });
+    // };
 
-    React.useEffect(() => {
-        showNotification();
-    }, []);
+    // React.useEffect(() => {
+    //     showNotification();
+    // }, []);
 
     const features = [
         {
             title: 'Hidden Attractions',
             description: 'Explore secret spots with navigation and location-based tips.',
             image: 'hiddenattraction.jpeg',
-            link: '/hidden-attractions',
+            link: '/hidden-attraction-maps',
             icon: <FaMapMarkedAlt size={45} className="text-[#49c6e5]" />,
         },
         {
             title: 'Challenges & Quests',
             description: 'Complete exciting photo challenges and earn rewards!',
             image: 'challenges.jpeg',
-            link: '/challenges',
+            link: '/Challenge',
             icon: <FaCamera size={45} className="text-[#ff6347]" />,
         },
         {
@@ -125,8 +125,16 @@ const Dashboard = () => {
                         <Link to="/my-badges" className="text-white text-lg font-semibold hover:bg-[#00bd9d] p-3 rounded-md flex items-center transition ease-in-out duration-300">
                             <FaTrophy className="mr-3" /> My Badges
                         </Link>
-                        <Link to="/challenges" className="text-white text-lg font-semibold hover:bg-[#00bd9d] p-3 rounded-md flex items-center transition ease-in-out duration-300">
+
+                        <Link to="/Challenge" className="text-white text-lg font-semibold hover:bg-[#00bd9d] p-3 rounded-md flex items-center transition ease-in-out duration-300">
+
                             <FaTrophy className="mr-3" /> My Challenges
+                        </Link>
+                        <Link to="/localculture" className="text-white text-lg font-semibold hover:bg-[#00bd9d] p-3 rounded-md flex items-center transition ease-in-out duration-300">
+                            <FaLeaf  className="mr-3" /> Local Immersion
+                        </Link>
+                        <Link to="/offline-mode" className="text-white text-lg font-semibold hover:bg-[#00bd9d] p-3 rounded-md flex items-center transition ease-in-out duration-300">
+                            <FaDownload className="mr-3" /> Offline Mode
                         </Link>
                     </div>
                 </div>
@@ -137,7 +145,7 @@ const Dashboard = () => {
 
             {/* Main Content */}
             <div className="w-4/5 p-8">
-                <ToastContainer />
+                {/* <ToastContainer /> */}
                 <motion.h1
                     className="text-5xl font-bold text-[#49c6e5] mb-8 text-center"
                     initial={{ y: -50, opacity: 0 }}
@@ -188,4 +196,5 @@ const Dashboard = () => {
         </div>
     );
 };
+
 export default Dashboard;

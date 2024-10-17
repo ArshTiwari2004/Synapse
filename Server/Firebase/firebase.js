@@ -1,5 +1,5 @@
 import admin from 'firebase-admin';
-import serviceAccount from '../firebase/travello-ac634-firebase-adminsdk-q9qgf-fec856f8fa.json' assert { type: 'json' };
+import serviceAccount from '../Firebase/TravelloData.json' assert { type: 'json' };
 
 admin.initializeApp({
   credential: admin.credential.cert(serviceAccount),

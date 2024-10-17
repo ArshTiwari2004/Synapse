@@ -1,76 +1,52 @@
 import React, { useState, useEffect, useRef } from 'react';
 import Map, { Marker, Popup, NavigationControl, GeolocateControl } from 'react-map-gl';
 import 'mapbox-gl/dist/mapbox-gl.css';
-import '@mapbox/mapbox-gl-geocoder/dist/mapbox-gl-geocoder.css';
-import MapboxGeocoder from '@mapbox/mapbox-gl-geocoder';
-import * as turf from '@turf/turf';
 import { useSpring, animated } from 'react-spring';
 import Confetti from 'react-confetti';
 import { Tooltip } from 'react-tooltip';
-import { MapPin, Compass, Star, Camera, Info, X, ChevronDown, ChevronUp, Share2 } from 'lucide-react';
+import { MapPin, Camera, Info, Share2 } from 'lucide-react';
 
 const MAPBOX_TOKEN = import.meta.env.VITE_MAPBOX_TOKEN;
 
-console.log(import.meta.env);
-
-
-//console.log(MAPBOX_TOKEN)
+const attractionsData = {
+  Maharashtra: [
+    { id: 1, name: "Gateway of India", description: "A famous monument in Mumbai.", latitude: 18.9218, longitude: 72.8347, photo: "Gatewayofindia.jpg" },
+    { id: 2, name: "Ajanta Caves", description: "Famous rock-cut caves.", latitude: 20.5465, longitude: 75.7006, photo: "Ajantacaves.jpg" },
+    { id: 3, name: "Shirdi", description: "Famous pilgrimage site.", latitude: 19.7664, longitude: 74.3967, photo: "shirdi.jpg" },
+    { id: 4, name: "Kolhapur", description: "Known for its heritage.", latitude: 16.7064, longitude: 74.2434, photo: "kohlapur.jpg" },
+    { id: 5, name: "Lonavala", description: "Hill station popular for its scenery.", latitude: 18.7532, longitude: 73.4091, photo: "lonavla.jpg" },
+  ],
+  UttarPradesh: [
+    { id: 6, name: "Taj Mahal", description: "An ivory-white marble mausoleum.", latitude: 27.1751, longitude: 78.0421, photo: "agra.jpg" },
+    { id: 7, name: "Varanasi", description: "City on the banks of the Ganges.", latitude: 25.3176, longitude: 82.9739, photo: "varanasi.jpg" },
+    { id: 8, name: "Lucknow", description: "Known for its rich history and architecture.", latitude: 26.8468, longitude: 80.9462, photo: "lucknow.jpg" },
+    { id: 9, name: "Agra Fort", description: "A UNESCO World Heritage Site.", latitude: 27.1750, longitude: 78.0081, photo: "agrafort.jpg" },
+    { id: 10, name: "Fatehpur Sikri", description: "Historical city founded by Akbar.", latitude: 27.1047, longitude: 77.6581, photo: "fatehpur.jpg" },
+  ],
+  Delhi: [
+    { id: 11, name: "Red Fort", description: "A symbol of India's freedom.", latitude: 28.6562, longitude: 77.2410, photo: "redfort.jpg" },
+    { id: 12, name: "India Gate", description: "A war memorial.", latitude: 28.6129, longitude: 77.2295, photo: "indiagate.jpg" },
+    { id: 13, name: "Qutub Minar", description: "The tallest brick minaret in the world.", latitude: 28.5244, longitude: 77.1855, photo: "qutubminar.jpg" },
+    { id: 14, name: "Lotus Temple", description: "A Bahá'í House of Worship.", latitude: 28.5535, longitude: 77.2588, photo: "lotus.jpg" },
+    { id: 15, name: "Akshardham Temple", description: "A spiritual-cultural complex.", latitude: 28.6120, longitude: 77.2834, photo: "akshardham.jpeg" },
+  ],
+  TamilNadu: [
+    { id: 16, name: "Meenakshi Temple", description: "An ancient temple.", latitude: 9.9250, longitude: 78.1198, photo: "meenakshi.jpg" },
+    { id: 17, name: "Ooty", description: "A popular hill station.", latitude: 11.4088, longitude: 76.6950, photo: "ooty.jpg" },
+    { id: 18, name: "Kanyakumari", description: "The southernmost tip of India.", latitude: 8.0884, longitude: 77.5551, photo: "kanyakumari.jpg" },
+    { id: 19, name: "Mahabalipuram", description: "Famous for its rock-cut temples.", latitude: 12.6194, longitude: 80.1955, photo: "mahabali.jpg" },
+    { id: 20, name: "Chennai Marina Beach", description: "One of the longest urban beaches.", latitude: 13.0487, longitude: 80.2953, photo: "cmbeach.jpg" },
+  ],
+};
 
 const HiddenAttractions = () => {
   const [viewState, setViewState] = useState({
-    latitude: 40.7128,
-    longitude: -74.0060,
-    zoom: 12
+    latitude: 20.5937, //india
+    longitude: 78.9629,
+    zoom: 5,
   });
-  const [attractions, setAttractions] = useState([]);
   const [selectedAttraction, setSelectedAttraction] = useState(null);
-  const [userLocation, setUserLocation] = useState(null);
-  const [showConfetti, setShowConfetti] = useState(false);
-  const [discoveredAttractions, setDiscoveredAttractions] = useState([]);
-  const [showTips, setShowTips] = useState(false);
   const mapRef = useRef();
-
-  useEffect(() => {
-    fetchAttractions();
-  }, []);
-
-  const fetchAttractions = async () => {
-    try {
-      const response = await fetch('/api/hidden-attractions');
-      const data = await response.json();
-      setAttractions(data);
-    } catch (error) {
-      console.error('Error fetching attractions:', error);
-    }
-  };
-
-  const handleMarkerClick = (attraction) => {
-    setSelectedAttraction(attraction);
-    if (!discoveredAttractions.includes(attraction.id)) {
-      discoverAttraction(attraction);
-    }
-  };
-
-  const discoverAttraction = async (attraction) => {
-    try {
-      const response = await fetch(`/api/discover-attraction/${attraction.id}`, { method: 'POST' });
-      if (response.ok) {
-        setDiscoveredAttractions([...discoveredAttractions, attraction.id]);
-        setShowConfetti(true);
-        setTimeout(() => setShowConfetti(false), 3000);
-      }
-    } catch (error) {
-      console.error('Error discovering attraction:', error);
-    }
-  };
-
-  const calculateDistance = (attraction) => {
-    if (!userLocation) return null;
-    const from = turf.point([userLocation.longitude, userLocation.latitude]);
-    const to = turf.point([attraction.longitude, attraction.latitude]);
-    const distance = turf.distance(from, to, { units: 'kilometers' });
-    return distance.toFixed(2);
-  };
 
   const popupAnimation = useSpring({
     opacity: selectedAttraction ? 1 : 0,
@@ -78,7 +54,7 @@ const HiddenAttractions = () => {
   });
 
   const renderAttractionMarkers = () => {
-    return attractions.map((attraction) => (
+    return Object.values(attractionsData).flat().map((attraction) => (
       <Marker
         key={attraction.id}
         longitude={attraction.longitude}
@@ -86,12 +62,8 @@ const HiddenAttractions = () => {
         anchor="bottom"
       >
         <div
-          onClick={() => handleMarkerClick(attraction)}
-          className={`cursor-pointer transition-all duration-300 ${
-            discoveredAttractions.includes(attraction.id)
-              ? 'text-green-500 hover:text-green-600'
-              : 'text-red-500 hover:text-red-600'
-          }`}
+          onClick={() => setSelectedAttraction(attraction)}
+          className="cursor-pointer transition-all duration-300 text-blue-500 hover:text-blue-600"
         >
           <MapPin size={32} />
         </div>
@@ -112,47 +84,16 @@ const HiddenAttractions = () => {
       >
         <animated.div style={popupAnimation} className="p-4 max-w-sm">
           <h3 className="text-lg font-semibold mb-2">{selectedAttraction.name}</h3>
+          <img src={selectedAttraction.photo} alt={selectedAttraction.name} className="mb-2 w-full h-32 object-cover rounded" />
           <p className="text-sm text-gray-600 mb-2">{selectedAttraction.description}</p>
-          <div className="flex justify-between items-center mb-2">
-            <span className="text-sm font-medium text-indigo-600">
-              {calculateDistance(selectedAttraction)} km away
-            </span>
-            <span className="flex items-center text-yellow-500">
-              <Star size={16} className="mr-1" />
-              {selectedAttraction.rating.toFixed(1)}
-            </span>
-          </div>
-          <button
-            onClick={() => {/* Implement photo challenge */}}
-            className="w-full bg-indigo-600 text-white py-2 rounded-lg hover:bg-indigo-700 transition-colors duration-300 flex items-center justify-center"
+          <a
+            href={`/attraction/${selectedAttraction.id}`} // Adjust the route based on your routing setup
+            className="w-full bg-blue-600 text-white py-2 rounded-lg hover:bg-blue-700 transition-colors duration-300 flex items-center justify-center"
           >
-            <Camera size={18} className="mr-2" />
-            Take Photo Challenge
-          </button>
+            Explore this page
+          </a>
         </animated.div>
       </Popup>
-    );
-  };
-
-  const renderLocationTips = () => {
-    if (!selectedAttraction) return null;
-
-    return (
-      <div className="absolute bottom-4 left-4 right-4 bg-white rounded-lg shadow-lg p-4 max-w-md mx-auto">
-        <div className="flex justify-between items-center mb-2">
-          <h4 className="text-lg font-semibold">Location Tips</h4>
-          <button onClick={() => setShowTips(!showTips)} className="text-gray-500 hover:text-gray-700">
-            {showTips ? <ChevronDown size={20} /> : <ChevronUp size={20} />}
-          </button>
-        </div>
-        {showTips && (
-          <ul className="list-disc list-inside text-sm text-gray-600">
-            {selectedAttraction.tips.map((tip, index) => (
-              <li key={index} className="mb-1">{tip}</li>
-            ))}
-          </ul>
-        )}
-      </div>
     );
   };
 
@@ -169,72 +110,19 @@ const HiddenAttractions = () => {
         <GeolocateControl
           positionOptions={{ enableHighAccuracy: true }}
           trackUserLocation={true}
-          onGeolocate={(e) => {
-            setUserLocation({
-              latitude: e.coords.latitude,
-              longitude: e.coords.longitude
-            });
-          }}
         />
         <NavigationControl />
         {renderAttractionMarkers()}
         {renderPopup()}
       </Map>
-
-      {renderLocationTips()}
-
       <div className="absolute top-4 left-4 right-4 bg-white bg-opacity-90 rounded-lg shadow-lg p-4">
         <h2 className="text-2xl font-bold text-center mb-4">Hidden Attractions</h2>
-        <div className="flex justify-between items-center mb-4">
-          <span className="text-lg font-medium">
-            Discovered: {discoveredAttractions.length} / {attractions.length}
-          </span>
-          <button
-            onClick={() => {/* Implement share functionality */}}
-            className="bg-indigo-600 text-white px-4 py-2 rounded-lg hover:bg-indigo-700 transition-colors duration-300 flex items-center"
-          >
-            <Share2 size={18} className="mr-2" />
-            Share Progress
-          </button>
-        </div>
-        <div className="relative pt-1">
-          <div className="flex mb-2 items-center justify-between">
-            <div>
-              <span className="text-xs font-semibold inline-block py-1 px-2 uppercase rounded-full text-indigo-600 bg-indigo-200">
-                Explorer Progress
-              </span>
-            </div>
-            <div className="text-right">
-              <span className="text-xs font-semibold inline-block text-indigo-600">
-                {((discoveredAttractions.length / attractions.length) * 100).toFixed(0)}%
-              </span>
-            </div>
-          </div>
-          <div className="overflow-hidden h-2 mb-4 text-xs flex rounded bg-indigo-200">
-            <div
-              style={{ width: `${(discoveredAttractions.length / attractions.length) * 100}%` }}
-              className="shadow-none flex flex-col text-center whitespace-nowrap text-white justify-center bg-indigo-500"
-            ></div>
-          </div>
-        </div>
       </div>
-
-      <div className="absolute bottom-4 right-4">
-        <button
-          onClick={() => {/* Implement info modal */}}
-          className="bg-white p-2 rounded-full shadow-lg hover:bg-gray-100 transition-colors duration-300"
-          data-tooltip-id="info-tooltip"
-          data-tooltip-content="How to play"
-        >
-          <Info size={24} className="text-indigo-600" />
-        </button>
-      </div>
-
       <Tooltip id="info-tooltip" />
-
-      {showConfetti && <Confetti />}
+      {/* {selectedAttraction && <Confetti />} */} 
     </div>
   );
 };
 
 export default HiddenAttractions;
+
