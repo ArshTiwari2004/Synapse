@@ -89,6 +89,10 @@ const App = () => {
                 <ProtectedRoute>
                   <HiddenAttractions />
                 </ProtectedRoute>} />
+                <Route path="/offline-mode" element={
+                <ProtectedRoute>
+                  <OfflineMode/>
+                </ProtectedRoute>} />
               <Route path="*" element={<NotFoundPage />} />
               <Route path="/offline-mode" element ={<OfflineMode />} />
             </Routes>

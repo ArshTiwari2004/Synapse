@@ -17,10 +17,7 @@ const About = () => {
         <p className="mt-6 text-lg text-gray-700 max-w-3xl mx-auto">
           Our platform is designed to revolutionize the travel experience by guiding you to hidden attractions and cultural experiences through interactive challenges. We integrate gamification with AI-powered personalization to create dynamic itineraries that adapt to your interests and real-time conditions, making every journey a memorable adventure.
         </p>
-
-        {/* Feature Boxes */}
         <div className="mt-12 grid grid-cols-1 md:grid-cols-3 gap-8 max-w-5xl mx-auto">
-          {/* Box 1: Hidden Attractions Maps */}
           <div className="bg-blue-200 shadow-lg rounded-lg p-6">
             <FaMapMarkerAlt className="text-4xl text-blue-600 mx-auto mb-4" />
             <h3 className="text-xl font-semibold text-gray-800 mb-2">Hidden Attractions Maps</h3>
