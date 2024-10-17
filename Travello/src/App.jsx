@@ -36,6 +36,7 @@ import Challenge from "./components/Challenge.jsx";
 import AchievementSection from "./components/Acheivemnt";
 import BlogSection from "./components/Blog";
 import Newsletter from "./components/Newsletter";
+import OfflineMode from "./components/Offlinemode.jsx";
 
 
 
@@ -87,6 +88,10 @@ const App = () => {
               <Route path="/hidden-attraction-maps" element={
                 <ProtectedRoute>
                   <HiddenAttractions />
+                </ProtectedRoute>} />
+                <Route path="/offline-mode" element={
+                <ProtectedRoute>
+                  <OfflineMode/>
                 </ProtectedRoute>} />
               <Route path="*" element={<NotFoundPage />} />
             </Routes>
