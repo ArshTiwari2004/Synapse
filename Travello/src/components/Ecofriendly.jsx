@@ -156,9 +156,12 @@ const EcoFriendlyPage = () => {
           Earn points by choosing eco-friendly travel options! Higher points mean better rewards.
         </p>
         <div className="flex justify-center mt-4">
-          {points >= 200 && <div className="badge bg-brown-600 text-white p-2 rounded-full ml-2">Bronze Badge</div>}
-          {points >= 400 && <div className="badge bg-gray-400 text-white p-2 rounded-full ml-2">Silver Badge</div>}
-          {points >= 600 && <div className="badge bg-yellow-400 text-white p-2 rounded-full ml-2">Gold Badge</div>}
+
+          {points >= 200 && <div className="badge bg-brown-600 text-teal-900 p-2 rounded-full ">Bronze Badge</div>}
+          {points >= 400 && <div className="badge bg-silver-600 text-teal-900 p-2 rounded-full ml-2">Silver Badge</div>}
+          {points >= 600 && <div className="badge bg-yellow-600 text-teal-900 p-2 rounded-full ml-2">Gold Badge</div>}
+
+          
         </div>
       </div>
 
