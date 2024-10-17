@@ -29,9 +29,14 @@ import HiddenAttractions from "./components/Hiddenattractions";
 // import Challenge from "./components/Challenge";
 import Leaderboard from "./components/Leaderboard";
 import NotFoundPage from "./components/NotFoundPage";
+
+import Challenge from "./components/Challenge.jsx";
+
+
 import AchievementSection from "./components/Acheivemnt";
 import BlogSection from "./components/Blog";
 import Newsletter from "./components/Newsletter";
+
 
 
 
@@ -71,10 +76,10 @@ const App = () => {
                 <ProtectedRoute>
                  <Quests />
                 </ProtectedRoute>} />
-              {/* <Route path="/Challenge" element={
+              <Route path="/Challenge" element={
                 <ProtectedRoute>
                   <Challenge />
-                </ProtectedRoute>} /> */}
+                </ProtectedRoute>} />
               <Route path="/my-badges" element={
                 <ProtectedRoute>
                   <Badges />
