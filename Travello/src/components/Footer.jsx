@@ -1,57 +1,40 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
 import { FaFacebook, FaInstagram, FaTwitter, FaYoutube } from 'react-icons/fa';
 
 const Footer = () => {
   return (
-    <footer className="bg-cyan-950 text-white py-10 px-5">
-      <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-4 gap-8">
-        {/* Brand Logo */}
-        <div className="mb-6">
-          <h2 className="text-2xl font-bold">Travello</h2>
-          <p className="text-gray-400 mt-2">Discover hidden gems, immerse in local culture, and adventure with us.</p>
+    <footer className="bg-cyan-950 text-white py-8">
+      <div className="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-start px-8 md:px-16">
+        {/* Brand Logo and Description */}
+        <div className="mb-6 md:mb-0 md:w-1/3">
+          <h2 className="text-3xl font-bold">Travello</h2>
+          <p className="text-gray-400 mt-2 max-w-sm">
+            Discover hidden gems, immerse in local culture, and adventure with us.
+          </p>
         </div>
 
-        {/* Links */}
-        <div className="mb-6">
+        {/* Quick Links */}
+        <div className="mb-6 md:mb-0 md:w-1/3">
           <h3 className="text-xl font-semibold mb-3">Quick Links</h3>
-          <ul>
-            <li className="mb-2">
-              <Link to="/" className="text-gray-400 hover:text-white">Home</Link>
+          <ul className="space-y-2">
+            <li>
+              <a href="#latest" className="text-gray-400 hover:text-white">Home</a>
             </li>
-            <li className="mb-2">
-              <Link to="/about" className="text-gray-400 hover:text-white">About Us</Link>
+            <li>
+              <a href="#about" className="text-gray-400 hover:text-white">About Us</a>
             </li>
-            <li className="mb-2">
-              <Link to="/destinations" className="text-gray-400 hover:text-white">Destinations</Link>
+            {/* Uncomment these as needed */}
+            {/* <li>
+              <a href="#destinations" className="text-gray-400 hover:text-white">Destinations</a>
             </li>
-            <li className="mb-2">
-              <Link to="/contact" className="text-gray-400 hover:text-white">Contact</Link>
-            </li>
-          </ul>
-        </div>
-
-        {/* Support Links */}
-        <div className="mb-6">
-          <h3 className="text-xl font-semibold mb-3">Support</h3>
-          <ul>
-            <li className="mb-2">
-              <Link to="/faq" className="text-gray-400 hover:text-white">FAQs</Link>
-            </li>
-            <li className="mb-2">
-              <Link to="/support" className="text-gray-400 hover:text-white">Help Center</Link>
-            </li>
-            <li className="mb-2">
-              <Link to="/privacy-policy" className="text-gray-400 hover:text-white">Privacy Policy</Link>
-            </li>
-            <li className="mb-2">
-              <Link to="/terms" className="text-gray-400 hover:text-white">Terms of Service</Link>
-            </li>
+            <li>
+              <a href="#contact" className="text-gray-400 hover:text-white">Contact</a>
+            </li> */}
           </ul>
         </div>
 
         {/* Social Links */}
-        <div className="mb-6">
+        <div className="md:w-1/3">
           <h3 className="text-xl font-semibold mb-3">Follow Us</h3>
           <div className="flex space-x-4">
             <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-white text-2xl">
@@ -70,7 +53,8 @@ const Footer = () => {
         </div>
       </div>
 
-      <div className="text-center mt-10">
+      {/* Copyright Section */}
+      <div className="bg-cyan-900 text-center py-4 mt-6">
         <p className="text-gray-500">&copy; 2024 Travello. All Rights Reserved.</p>
       </div>
     </footer>
@@ -78,3 +62,4 @@ const Footer = () => {
 };
 
 export default Footer;
+

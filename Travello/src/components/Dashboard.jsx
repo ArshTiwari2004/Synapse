@@ -87,10 +87,10 @@ const Dashboard = () => {
             icon: <FaSeedling size={45} className="text-[#00bd9d]" />,
         },
         {
-            title: 'Carbon Footprints',
+            title: 'Carbon Emmissions',
             description: 'Track and reduce your carbon footprint with eco-friendly tips.',
             image: 'cf.png',
-            link: '/carbon-footprints',
+            link: '/green-points-system',
             icon: <FaRecycle size={30} className="text-[#49c6e5]" />,
         },
     ];
