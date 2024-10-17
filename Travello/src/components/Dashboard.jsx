@@ -9,18 +9,18 @@ import {
 } from 'react-icons/fa';
 
 const Dashboard = () => {
-    const showNotification = () => {
-        toast.success("Welcome to the Dashboard! Explore all the amazing features!", {
-            position: "top-center",
-            autoClose: 3000,
-            hideProgressBar: true,
-            theme: "dark",
-        });
-    };
+    // const showNotification = () => {
+    //     toast.success("Welcome to the Dashboard! Explore all the amazing features!", {
+    //         position: "top-center",
+    //         autoClose: 3000,
+    //         hideProgressBar: true,
+    //         theme: "dark",
+    //     });
+    // };
 
-    React.useEffect(() => {
-        showNotification();
-    }, []);
+    // React.useEffect(() => {
+    //     showNotification();
+    // }, []);
 
     const features = [
         {
@@ -137,7 +137,7 @@ const Dashboard = () => {
 
             {/* Main Content */}
             <div className="w-4/5 p-8">
-                <ToastContainer />
+                {/* <ToastContainer /> */}
                 <motion.h1
                     className="text-5xl font-bold text-[#49c6e5] mb-8 text-center"
                     initial={{ y: -50, opacity: 0 }}
