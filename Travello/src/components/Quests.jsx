@@ -11,81 +11,150 @@ const MAPBOX_TOKEN = 'YOUR_MAPBOX_TOKEN_HERE';
 const Quests = () => {
   const [quests, setQuests] = useState([
     {
-      id: 1,
-      title: "Capture the Sunset",
-      description: "Take a photo of the sunset from the city's highest point.",
-      details: "Find the best spot and capture the beauty of the sunset. Share it with your friends!",
-      type: 'photo',
-      points: 50,
-      completed: false,
+      "id": 1,
+      "title": "Capture the Sunset",
+      "description": "Take a photo of the sunset from the city's highest point.",
+      "details": "Find the best spot and capture the beauty of the sunset. Share it with your friends!",
+      "type": "photo",
+      "points": 50,
+      "completed": false
     },
     {
-      id: 2,
-      title: "Hidden Gem Discovery",
-      description: "Find and check-in at the secret garden in the old town.",
-      details: "Explore the old town to find the hidden garden and take a photo there.",
-      type: 'location',
-      points: 75,
-      completed: false,
-      location: [-122.4194, 37.7749],
+      "id": 2,
+      "title": "Hidden Gem Discovery",
+      "description": "Find and check-in at the secret garden in the old town.",
+      "details": "Explore the old town to find the hidden garden and take a photo there.",
+      "type": "location",
+      "points": 75,
+      "completed": false
     },
     {
-      id: 3,
-      title: "Local Cuisine Challenge",
-      description: "Try 5 different local dishes and rate them.",
-      details: "Explore local eateries and enjoy the diverse flavors. Rate each dish to share your experience.",
-      type: 'challenge',
-      points: 100,
-      completed: false,
+      "id": 3,
+      "title": "Local Cuisine Challenge",
+      "description": "Try 5 different local dishes and rate them.",
+      "details": "Explore local eateries and enjoy the diverse flavors. Rate each dish to share your experience.",
+      "type": "challenge",
+      "points": 100,
+      "completed": false
     },
     {
-      id: 4,
-      title: "Nature Walk",
-      description: "Walk 5 km in the nearest nature park and take a photo of a rare flower.",
-      details: "Enjoy the beauty of nature and capture a rare flower in your photo.",
-      type: 'photo',
-      points: 60,
-      completed: false,
+      "id": 4,
+      "title": "Nature Walk",
+      "description": "Walk 5 km in the nearest nature park and take a photo of a rare flower.",
+      "details": "Enjoy the beauty of nature and capture a rare flower in your photo.",
+      "type": "photo",
+      "points": 60,
+      "completed": false
     },
     {
-      id: 5,
-      title: "Historic Landmark Hunt",
-      description: "Visit three historical landmarks in your city and learn about their history.",
-      details: "Research and discover the history of each landmark as you visit them.",
-      type: 'location',
-      points: 80,
-      completed: false,
-      location: [-73.935242, 40.730610], // Example coordinates (New York City)
+      "id": 5,
+      "title": "Historic Landmark Hunt",
+      "description": "Visit three historical landmarks in your city and learn about their history.",
+      "details": "Research and discover the history of each landmark as you visit them.",
+      "type": "location",
+      "points": 80,
+      "completed": false
     },
     {
-      id: 6,
-      title: "Street Art Challenge",
-      description: "Find and photograph the most vibrant street art in town.",
-      details: "Explore the city to discover stunning street art. Share your favorite pieces!",
-      type: 'photo',
-      points: 70,
-      completed: false,
+      "id": 6,
+      "title": "Street Art Challenge",
+      "description": "Find and photograph the most vibrant street art in town.",
+      "details": "Explore the city to discover stunning street art. Share your favorite pieces!",
+      "type": "photo",
+      "points": 70,
+      "completed": false
     },
     {
-      id: 7,
-      title: "Fitness Frenzy",
-      description: "Complete 100 push-ups, 100 sit-ups, and a 10 km run in a day.",
-      details: "Challenge yourself physically and track your progress throughout the day.",
-      type: 'challenge',
-      points: 120,
-      completed: false,
+      "id": 7,
+      "title": "Fitness Frenzy",
+      "description": "Complete 100 push-ups, 100 sit-ups, and a 10 km run in a day.",
+      "details": "Challenge yourself physically and track your progress throughout the day.",
+      "type": "challenge",
+      "points": 120,
+      "completed": false
     },
     {
-      id: 8,
-      title: "Museum Exploration",
-      description: "Visit a local museum and find out about its most famous exhibit.",
-      details: "Immerse yourself in art and history. Share what you learned with friends!",
-      type: 'location',
-      points: 90,
-      completed: false,
-      location: [-0.127758, 51.507351], 
+      "id": 8,
+      "title": "Museum Exploration",
+      "description": "Visit a local museum and find out about its most famous exhibit.",
+      "details": "Immerse yourself in art and history. Share what you learned with friends!",
+      "type": "location",
+      "points": 90,
+      "completed": false
     },
-  ]);
+    {
+      "id": 9,
+      "title": "Beach Cleanup",
+      "description": "Spend a day cleaning up the beach.",
+      "details": "Help the environment by collecting trash and keeping the beach clean.",
+      "type": "challenge",
+      "points": 110,
+      "completed": false
+    },
+    {
+      "id": 10,
+      "title": "Photography Walk",
+      "description": "Capture 10 unique photos during a walk around your city.",
+      "details": "Find interesting subjects during your walk and capture them in creative ways.",
+      "type": "photo",
+      "points": 65,
+      "completed": false
+    },
+    {
+      "id": 11,
+      "title": "Art Gallery Visit",
+      "description": "Explore a local art gallery and learn about 3 different artists.",
+      "details": "Immerse yourself in the art and learn about the techniques and stories behind the work.",
+      "type": "location",
+      "points": 85,
+      "completed": false
+    },
+    {
+      "id": 12,
+      "title": "Mountain Hike",
+      "description": "Hike a nearby mountain and take a photo at the summit.",
+      "details": "Challenge yourself to reach the top and enjoy the view from the summit.",
+      "type": "challenge",
+      "points": 130,
+      "completed": false
+    },
+    {
+      "id": 13,
+      "title": "Waterfall Adventure",
+      "description": "Find a waterfall in the wild and take a photo.",
+      "details": "Enjoy the serenity of nature and capture the beauty of a waterfall.",
+      "type": "photo",
+      "points": 95,
+      "completed": false
+    },
+    {
+      "id": 14,
+      "title": "City Marathon",
+      "description": "Run a marathon through your city streets.",
+      "details": "Challenge yourself to complete a full marathon and track your time.",
+      "type": "challenge",
+      "points": 150,
+      "completed": false
+    },
+    {
+      "id": 15,
+      "title": "Bird Watching",
+      "description": "Identify 10 different species of birds in the local park.",
+      "details": "Take notes or photos of each species and research their habits.",
+      "type": "location",
+      "points": 70,
+      "completed": false
+    },
+    {
+      "id": 16,
+      "title": "Sunrise Yoga",
+      "description": "Join a yoga session at sunrise in the park.",
+      "details": "Find your inner peace as you practice yoga surrounded by nature.",
+      "type": "challenge",
+      "points": 100,
+      "completed": false
+    }
+]);
 
   const [showConfetti, setShowConfetti] = useState(false);
   const [selectedQuest, setSelectedQuest] = useState(null); 
