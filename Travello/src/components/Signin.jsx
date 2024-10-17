@@ -4,7 +4,7 @@ import { FcGoogle } from 'react-icons/fc';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 import { toast } from 'react-hot-toast';
-import { auth, googleProvider } from '../config/firebase';
+import { auth, googleProvider } from '../Config/firebase.js';
 import { signInWithPopup } from 'firebase/auth';
 
 const Login = () => {
