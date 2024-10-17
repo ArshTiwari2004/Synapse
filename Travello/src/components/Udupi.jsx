@@ -6,7 +6,7 @@ import { FaMapMarkerAlt, FaUtensils, FaTheaterMasks, FaPaintBrush, FaHiking, FaH
 
 const GOOGLE_MAPS_API_KEY = 'YOUR_GOOGLE_MAPS_API_KEY';
 
-const LocalCultureImmersion = () => {
+const Udupi = () => {
   const [activeIndex, setActiveIndex] = useState(null);
   const [userLocation, setUserLocation] = useState(null);
   const [locationData, setLocationData] = useState(null);
@@ -264,4 +264,4 @@ const LocalCultureImmersion = () => {
   );
 };
 
-export default LocalCultureImmersion;
+export default Udupi;

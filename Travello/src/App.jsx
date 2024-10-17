@@ -40,7 +40,14 @@ import OfflineMode from "./components/Offlinemode.jsx";
 import GreenPointsSystem from "./components/GreenPointsSystem.jsx";
 import EcoFriendlyPage from "./components/Ecofriendly.jsx";
 import CarbonReductionMap from "./components/Carbonreductionmap.jsx";
-
+import CommunityLiving from "./components/CommunityLiving.jsx";
+import CulturalActivities from "./components/CulturalActivities.jsx";
+import HandicraftsWorkshops  from "./components/HandicraftsWorkshops.jsx";
+import LocalCuisines from "./components/LocalCuisines.jsx";
+import NatureAdventure from "./components/NatureAdventure.jsx";
+import TraditionalMusicDance from "./components/TraditionalMusicDance.jsx";
+import Local from "./components/Local";
+import Udupi from "./components/Udupi.jsx";
 
 
 
@@ -100,6 +107,14 @@ const App = () => {
               <Route path="/green-points-system" element={<GreenPointsSystem />} />
               <Route path="/eco-friendly" element={<EcoFriendlyPage />} />
               <Route path ="/carbon-reduction-map" element={<CarbonReductionMap />} />
+              <Route path ="/community-living" element={<CommunityLiving />} />
+              <Route path ="/cultural-activities" element={<CulturalActivities />} />
+              <Route path ="/handicrafts-workshops" element={<HandicraftsWorkshops />} />
+              <Route path ="/local-cuisines" element={<LocalCuisines />} />
+              <Route path ="/nature-adventure" element={<NatureAdventure />} />
+              <Route path ="/traditional-music-dance" element={<TraditionalMusicDance />} />
+              <Route path ="/local" element={<Local />} />
+              <Route path ="/udupi" element={<Udupi />} />
             </Routes>
           </main>
           <Footer />

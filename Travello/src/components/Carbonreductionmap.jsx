@@ -101,3 +101,5 @@ const CarbonReductionMap = () => {
     </div>
   );
 };
+
+export default CarbonReductionMap;
