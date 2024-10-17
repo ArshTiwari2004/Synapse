@@ -1,7 +1,10 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
 	darkMode: ["class"],
-	content: ["./src/**/*.{html,js,jsx}"],
+	content: [
+	  "./index.html",
+	  "./src/**/*.{js,ts,jsx,tsx}",
+	],
 	theme: {
 	  extend: {
 		fontFamily: {
@@ -10,11 +13,11 @@ module.exports = {
 		  roboto: ['Roboto', 'sans-serif'],
 		  playfair: ['Playfair Display', 'serif'],
 		},
-		borderRadius: {
-		  lg: 'var(--radius)',
-		  md: 'calc(var(--radius) - 2px)',
-		  sm: 'calc(var(--radius) - 4px)',
-		},
+		// borderRadius: {
+		//   lg: '12px', // Replacing variable with a static value for lg
+		//   md: '10px', // Replacing variable with a static value for md
+		//   sm: '8px',  // Replacing variable with a static value for sm
+		// },
 		colors: {
 		  background: 'hsl(var(--background))',
 		  foreground: 'hsl(var(--foreground))',
@@ -56,7 +59,7 @@ module.exports = {
 			4: 'hsl(var(--chart-4))',
 			5: 'hsl(var(--chart-5))',
 		  },
-		  // Adding your custom colors
+		  // Custom colors
 		  'sky-blue': '#49c6e5',
 		  'light-blue': '#54defd',
 		  'off-white': '#fffbfa',
