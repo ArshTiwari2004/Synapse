@@ -36,6 +36,7 @@ import Challenge from "./components/Challenge.jsx";
 import AchievementSection from "./components/Acheivemnt";
 import BlogSection from "./components/Blog";
 import Newsletter from "./components/Newsletter";
+import GreenPointsSystem from "./components/GreenPointsSystem.jsx";
 
 
 
@@ -89,6 +90,7 @@ const App = () => {
                   <HiddenAttractions />
                 </ProtectedRoute>} />
               <Route path="*" element={<NotFoundPage />} />
+              <Route path="/green-points-system" element={<GreenPointsSystem />} />
             </Routes>
           </main>
           <Footer />
