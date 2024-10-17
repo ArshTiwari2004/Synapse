@@ -59,9 +59,9 @@ const SocialIntegration = () => {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-yellow-200 to-blue-400 flex flex-col items-center justify-center p-6">
-      <h1 className="text-5xl font-bold text-gray-900 mb-6 drop-shadow-lg">Connect Your Social Accounts</h1>
-      <p className="text-lg text-gray-900 font-semibold mb-10 text-center max-w-md">
+    <div className="min-h-screen bg-gradient-to-b from-mint to-light-green flex flex-col items-center justify-center p-6">
+      <h1 className="text-5xl font-bold text-teal-900 mb-6 drop-shadow-lg">Connect Your Social Accounts</h1>
+      <p className="text-lg text-teal-750 font-semibold mb-10 text-center max-w-md">
         Stay connected with your friends and share your Travello moments instantly. Happy Travelloing!
       </p>
 
@@ -115,7 +115,7 @@ const SocialIntegration = () => {
       </div>
 
       <motion.p
-        className="text-lg text-gray-900 mt-10 font-bold text-center"
+        className="text-lg text-teal-800 mt-10 font-bold text-center"
         initial={{ y: 20, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}
         transition={{ duration: 0.5 }}
