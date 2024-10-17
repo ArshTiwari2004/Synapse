@@ -29,21 +29,27 @@ const LandingPage = () => {
                 <Link to="/" className="text-lg font-medium text-off-white hover:text-light-blue transition font-montserrat"> {/* Light Blue hover */}
                   <FaHome className="inline mr-1" /> Home
                 </Link>
-                <Link
-                  to="/discover"
+                <a
+                  href="#about"
                   className="text-lg font-medium text-white hover:text-blue-200 transition font-montserrat"
                 >
                   <FaMapMarkedAlt className="inline mr-1" /> About Us
-                </Link>
-                <Link
-                  to="/leaderboard"
+                </a>
+                <a
+                  href="#reviews"
                   className="text-lg font-medium text-white hover:text-blue-200 transition font-montserrat"
                 >
-                  <FaTrophy className="inline mr-1" /> Popular Monuments
-                </Link>
-                <Link to="/profile" className="text-lg font-medium text-off-white hover:text-light-blue transition font-montserrat">
+                  <FaTrophy className="inline mr-1" /> Reviews
+                </a> 
+                <a
+                  href="#latest"
+                  className="text-lg font-medium text-white hover:text-blue-200 transition font-montserrat"
+                >
+                  <FaPlane className="inline mr-1" /> Latest Adventures
+                </a> 
+                {/* <Link to="/profile" className="text-lg font-medium text-off-white hover:text-light-blue transition font-montserrat">
                   <FaUserAlt className="inline mr-1" /> Profile
-                </Link>
+                </Link> */}
                 <Link to="/signup" className="px-4 py-2 border border-off-white text-off-white bg-sky-blue rounded-lg transition duration-300 hover:bg-light-blue hover:text-off-white"> {/* Sky Blue background with Light Blue hover */}
                   Sign Up
                 </Link>

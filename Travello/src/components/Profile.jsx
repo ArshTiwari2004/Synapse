@@ -1,4 +1,5 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
+import axios from 'axios'; // Import axios if using it
 import { FaUser, FaEnvelope, FaPhone, FaMapMarkerAlt, FaGlobe, FaVenusMars, FaBirthdayCake, FaKey, FaEdit } from 'react-icons/fa';
 
 function ProfileField({ label, value, Icon }) {
@@ -17,19 +18,42 @@ export default function Profile() {
   const [showChangePassword, setShowChangePassword] = useState(false);
   const [showEditProfile, setShowEditProfile] = useState(false);
   const [profile, setProfile] = useState({
-    firstName: 'John',
-    lastName: 'Doe',
-    email: 'john.doe@example.com',
-    phone: '+1 (555) 123-4567',
-    location: 'New York City',
-    country: 'United States',
-    gender: 'Male',
-    dob: 'January 1, 1990',
+    firstName: '',
+    lastName: '',
+    email: '',
+    phone: '',
+    location: '',
+    country: '',
+    gender: '',
+    dob: ''
   });
 
   const [password, setPassword] = useState({ current: '', newPassword: '', confirmPassword: '' });
 
-  // Handle password change form submission
+  useEffect(() => {
+    const fetchUserProfile = async () => {
+      try {
+        const response = await axios.get('/api/user/profile', { withCredentials: true });
+        const userData = response.data;
+        console.log(userData);
+        setProfile({
+          firstName: userData.firstName,
+          lastName: userData.lastName,
+          email: userData.email,
+          phone: userData.phone,
+          country: userData.country,
+          gender: userData.gender,
+          dob: new Date(userData.dateOfBirth).toLocaleDateString(), 
+          location: 'Your Location' 
+        });
+      } catch (error) {
+        console.error('Error fetching user profile:', error);
+      }
+    };
+
+    fetchUserProfile();
+  }, []); 
+
   const handlePasswordChange = (e) => {
     e.preventDefault();
     if (password.newPassword === password.confirmPassword) {
@@ -40,7 +64,6 @@ export default function Profile() {
     }
   };
 
-  // Handle profile edit form submission
   const handleProfileEdit = (e) => {
     e.preventDefault();
     alert('Profile updated successfully!');
@@ -57,7 +80,9 @@ export default function Profile() {
         <div className="p-6">
           <div className="flex justify-center mb-6">
             <div className="w-24 h-24 rounded-full bg-gradient-to-r from-emerald-300 to-emerald-600 flex items-center justify-center shadow-lg">
-              <span className="text-3xl text-white font-bold">JD</span>
+              <span className="text-3xl text-white font-bold">
+                {profile.firstName.charAt(0)}{profile.lastName.charAt(0)}
+              </span>
             </div>
           </div>
 
@@ -99,7 +124,6 @@ export default function Profile() {
         </div>
       </div>
 
-      {/* Change Password Modal */}
       {showChangePassword && (
         <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center">
           <div className="bg-white p-6 rounded-lg shadow-lg">
@@ -140,7 +164,6 @@ export default function Profile() {
         </div>
       )}
 
-      {/* Edit Profile Modal */}
       {showEditProfile && (
         <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center">
           <div className="bg-white p-6 rounded-lg shadow-lg">

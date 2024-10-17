@@ -3,34 +3,118 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import LandingPage from "./components/Landingpage";
 import Signup from "./components/Signup";
 import Login from "./components/Signin";
+import About from "./components/Aboutus";
+import FeatureCarousel from "./components/Carousel";
 
-function App() {
-  const [count, setCount] = useState(0)
+import Footer from "./components/Footer";
+
+import AccountCreated from "./components/Accountcreated";
+import Dashboard from "./components/Dashboard";
+import SocialIntegration from "./components/Socials.jsx";
+
+// import CompleteChallengesPage from "./components/Challenges.jsx";
+import ProtectedRoute from './ProtectedRoutes.jsx';
+import { AuthProvider } from './context/authContext.jsx';
+import { Toaster } from 'react-hot-toast';
+import Profile from "./components/Profile";
+import Localculture from "./components/localcultureimmersion";
+import Quests from "./components/Quests";
+
+import ReviewSection from "./components/Review";
+
+import Badges from "./components/Badges";
+import HiddenAttractions from "./components/Hiddenattractions";
+// import QuestsAndChallenges from "./components/QuestAndChalleneges";
+// import Quest from "./components/Quest";
+// import Challenge from "./components/Challenge";
+import Leaderboard from "./components/Leaderboard";
+import NotFoundPage from "./components/NotFoundPage";
+
+import Challenge from "./components/Challenge.jsx";
+
+
+import AchievementSection from "./components/Acheivemnt";
+import BlogSection from "./components/Blog";
+import Newsletter from "./components/Newsletter";
+import OfflineMode from "./components/Offlinemode.jsx";
+
+
+
+
+
+const App = () => {
 
   return (
-    <>
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
-}
+    <AuthProvider>
+      <Router>
+        <div className="flex flex-col min-h-screen">
+          <main className="flex-grow">
+            <Routes>
+              <Route path="/" element={<Landing />} />
+              <Route path="/signup" element={<Signup />} />
+              <Route path="/signin" element={<Login />} />
+              <Route path="/accountcreated" element={<AccountCreated />} />
+              <Route path="/dashboard" element={<ProtectedRoute>
+                <Dashboard />
+              </ProtectedRoute>} />
+              <Route path="/socials" element={<SocialIntegration />} />
+              <Route path="/leaderboard" element={
+                <ProtectedRoute>
+                  <Leaderboard />
+                </ProtectedRoute>} />
+              {/* <Route path="/challenges" element={<CompleteChallengesPage />} /> */}
 
-export default App
+              <Route path="/profile" element={
+                <ProtectedRoute>
+                  <Profile />
+                </ProtectedRoute>
+              } />
+              <Route path="/localculture" element={
+                <ProtectedRoute>
+                  <Localculture />
+                </ProtectedRoute>} />
+              <Route path="/quests" element={
+                <ProtectedRoute>
+                 <Quests />
+                </ProtectedRoute>} />
+              <Route path="/Challenge" element={
+                <ProtectedRoute>
+                  <Challenge />
+                </ProtectedRoute>} />
+              <Route path="/my-badges" element={
+                <ProtectedRoute>
+                  <Badges />
+                </ProtectedRoute>} />
+              <Route path="/hidden-attraction-maps" element={
+                <ProtectedRoute>
+                  <HiddenAttractions />
+                </ProtectedRoute>} />
+              <Route path="*" element={<NotFoundPage />} />
+              <Route path="/offline-mode" element ={<OfflineMode />} />
+            </Routes>
+          </main>
+          <Footer />
+        </div>
+      </Router>
+      <Toaster />
+    </AuthProvider>
+  );
+};
+
+
+
+
+const Landing = () => {
+  return (
+    <div className="flex flex-col">
+      <LandingPage />
+      <About />
+      <AchievementSection />
+      <ReviewSection />
+      <BlogSection />
+      <Newsletter />
+    </div>
+  );
+};
+
+export default App;

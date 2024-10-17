@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import Map, { NavigationControl } from 'react-map-gl';
 import 'mapbox-gl/dist/mapbox-gl.css';
 import { openDB } from 'idb';
+import ClipLoader from 'react-spinners/ClipLoader'; // Import the ClipLoader from react-spinners
 
 const MAPBOX_TOKEN = 'pk.eyJ1IjoiYXJzaHRpd2FyaSIsImEiOiJjbTJhODE2dm8wZ2MxMmlxdTJkbnJ1aTZnIn0.m9ky2-2MfcdA37RIVoxC_w';
 
@@ -61,10 +62,8 @@ const OfflineMode = () => {
     const db = await openDB('MapTilesDB', 1);
     const tiles = await db.getAll('tiles');
 
-    // Use the cached tiles to render the map
     if (tiles.length > 0) {
       console.log('Offline map loaded with cached tiles:', tiles);
-      // Logic to render map using offline tiles
     } else {
       console.warn('No offline map tiles found. Please download tiles when online.');
     }
@@ -73,14 +72,21 @@ const OfflineMode = () => {
   return (
     <div className="p-6 bg-gray-100 min-h-screen flex flex-col items-center">
       <h2 className="text-2xl font-bold mb-4">Offline Mode Map</h2>
-      <div className="w-full max-w-3xl mb-4">
-        <button
-          onClick={downloadMapTiles}
-          disabled={isDownloading || isOffline}
-          className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
-        >
-          {isDownloading ? 'Downloading...' : isOffline ? 'Map Available Offline' : 'Download Map for Offline Use'}
-        </button>
+      <div className="w-full max-w-3xl mb-4 flex flex-col items-center">
+        {isDownloading ? (
+          <div className="flex flex-col items-center">
+            <ClipLoader color="#4A90E2" loading={isDownloading} size={50} /> {/* Spinner with custom color and size */}
+            <p className="mt-2 text-lg text-gray-600">Please wait, we're downloading the map for you. Happy Travelling!</p>
+          </div>
+        ) : (
+          <button
+            onClick={downloadMapTiles}
+            disabled={isOffline}
+            className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
+          >
+            {isOffline ? 'Map Available Offline' : 'Download Map for Offline Use'}
+          </button>
+        )}
       </div>
       <div className="w-full max-w-4xl h-96">
         <Map

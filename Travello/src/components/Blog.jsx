@@ -47,7 +47,7 @@ const BlogSection = () => {
   ];
 
   return (
-    <div className="bg-fffbfa py-10 px-4">
+    <div className="bg-fffbfa py-10 px-4 " id='latest'>
       <h2 className=" flex items-center justify-center text-4xl text-sky-blue font-bold text-49c6e5 mb-6 p-4">Latest Adventures</h2>
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
         {posts.map(post => (
