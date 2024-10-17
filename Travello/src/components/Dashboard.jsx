@@ -119,9 +119,9 @@ const Dashboard = () => {
                         <Link to="/quests" className="text-white text-lg font-semibold hover:bg-[#00bd9d] p-3 rounded-md flex items-center transition ease-in-out duration-300">
                             <FaCamera className="mr-3" /> My Quests
                         </Link>
-                        <Link to="/my-itinerary" className="text-white text-lg font-semibold hover:bg-[#00bd9d] p-3 rounded-md flex items-center transition ease-in-out duration-300">
+                        <a href="https://iti-gen-47hm-git-main-arushs-projects-de106c3b.vercel.app/" className="text-white text-lg font-semibold hover:bg-[#00bd9d] p-3 rounded-md flex items-center transition ease-in-out duration-300">
                             <FaLeaf className="mr-3" /> My Itinerary
-                        </Link>
+                        </a>
                         <Link to="/my-badges" className="text-white text-lg font-semibold hover:bg-[#00bd9d] p-3 rounded-md flex items-center transition ease-in-out duration-300">
                             <FaTrophy className="mr-3" /> My Badges
                         </Link>
