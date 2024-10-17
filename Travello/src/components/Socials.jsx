@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
 import { FaFacebook, FaTwitter, FaInstagram, FaLinkedin, FaGoogle, FaSnapchat } from 'react-icons/fa';
 import { motion } from 'framer-motion';
-import { toast } from 'react-hot-toast'; // Only import toast
+import { toast } from 'react-hot-toast';
+import axios from 'axios';  // Import Axios
 import 'react-toastify/dist/ReactToastify.css';
 
 const SocialIntegration = () => {
@@ -20,14 +21,36 @@ const SocialIntegration = () => {
     setModal({ isOpen: true, platform, socialLink: '' });
   };
 
-  const handleSaveLink = () => {
+  const handleSaveLink = async () => {
     if (modal.socialLink.trim() === '') {
-      toast.error('Please enter a valid link!'); 
+      toast.error('Please enter a valid link!');
       return;
     }
 
-    setLinkedAccounts({ ...linkedAccounts, [modal.platform]: true });
-    toast.success(`Your ${modal.platform.charAt(0).toUpperCase() + modal.platform.slice(1)} account has been linked!`);
+    try {
+      const response = await axios.post(
+        '/api/user/socialmedia',  // Assuming you have the API base URL configured or using a relative path
+        {
+          platform: modal.platform,
+          link: modal.socialLink,
+        },
+        {
+          headers: {
+            Authorization: `Bearer ${localStorage.getItem('token')}`, // Include token for authentication
+          },
+        }
+      );
+
+      if (response.status === 200 || response.status === 201) {
+        setLinkedAccounts({ ...linkedAccounts, [modal.platform]: true });
+        toast.success(`Your ${modal.platform.charAt(0).toUpperCase() + modal.platform.slice(1)} account has been linked!`);
+      }
+
+    } catch (error) {
+      toast.error('Failed to link your social media account. Please try again.');
+      console.error(error); // For debugging in the console
+    }
+
     setModal({ isOpen: false, platform: '', socialLink: '' });
   };
 
@@ -43,8 +66,7 @@ const SocialIntegration = () => {
       </p>
 
       <div className="grid grid-cols-2 gap-8 mb-10 md:grid-cols-3 lg:grid-cols-4">
-        {[
-          { platform: 'facebook', icon: <FaFacebook size={60} />, bgColor: 'bg-blue-600', borderColor: 'border-blue-500' },
+        {[{ platform: 'facebook', icon: <FaFacebook size={60} />, bgColor: 'bg-blue-600', borderColor: 'border-blue-500' },
           { platform: 'twitter', icon: <FaTwitter size={60} />, bgColor: 'bg-blue-400', borderColor: 'border-blue-300' },
           { platform: 'instagram', icon: <FaInstagram size={60} />, bgColor: 'bg-pink-500', borderColor: 'border-pink-400' },
           { platform: 'linkedin', icon: <FaLinkedin size={60} />, bgColor: 'bg-blue-700', borderColor: 'border-blue-600' },
@@ -66,9 +88,7 @@ const SocialIntegration = () => {
 
       <div className="flex justify-center w-full mb-10">
         <div className="flex space-x-8">
-          <div
-            className={`flex flex-col items-center justify-center bg-red-500 text-white p-6 rounded-lg shadow-lg border-4 border-red-600 transform transition-transform duration-300 hover:scale-105`}
-          >
+          <div className={`flex flex-col items-center justify-center bg-red-500 text-white p-6 rounded-lg shadow-lg border-4 border-red-600 transform transition-transform duration-300 hover:scale-105`}>
             <div className={`mb-4 p-2 rounded-full bg-red-500 shadow-md`}>
               <FaGoogle size={60} />
             </div>
@@ -80,9 +100,7 @@ const SocialIntegration = () => {
             </button>
           </div>
 
-          <div
-            className={`flex flex-col items-center justify-center bg-yellow-500 text-white p-6 rounded-lg shadow-lg border-4 border-yellow-600 transform transition-transform duration-300 hover:scale-105`}
-          >
+          <div className={`flex flex-col items-center justify-center bg-yellow-500 text-white p-6 rounded-lg shadow-lg border-4 border-yellow-600 transform transition-transform duration-300 hover:scale-105`}>
             <div className={`mb-4 p-2 rounded-full bg-yellow-500 shadow-md`}>
               <FaSnapchat size={60} />
             </div>

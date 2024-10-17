@@ -149,10 +149,10 @@ const GreenPointsSystem = () => {
   };
 
   return (
-    <div className="container mx-auto p-6 bg-sky-500 rounded-lg shadow-lg">
-      <h1 className="text-4xl font-bold text-center mb-6">Our Unique Green Points System</h1>
+    <div className="container mx-auto p-6 bg-gradient-to-b from-mint to-light-green rounded-lg shadow-lg">
+      <h1 className="text-4xl font-bold text-center mb-6 text-teal-800">Our Unique Green Points System</h1>
 
-      <div className="bg-white p-6 rounded-lg shadow-md mb-6">
+      <div className="bg-teal-50 p-6 rounded-lg shadow-md mb-6">
         <h2 className="text-2xl font-semibold mb-4">Why Green Points?</h2>
         <p className="mb-4">
           The Green Points System aims to promote sustainable travel by rewarding eco-friendly choices.
@@ -225,10 +225,10 @@ const GreenPointsSystem = () => {
             </p>
           </div>
           <div>
-            <p className="text-xl font-semibold">Points Earned: {points}</p>
+            <p className="text-xl font-bold text-emerald-800">Points Earned: {points}</p>
           </div>
           <div>
-            <p className="text-xl font-semibold">Carbon Emissions: {carbonEmissions} kg CO₂</p>
+            <p className="text-xl font-bold text-emerald-800">Carbon Emissions: {carbonEmissions} kg CO₂</p>
           </div>
         </div>
       </div>

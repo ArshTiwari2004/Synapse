@@ -4,6 +4,7 @@ import cors from 'cors';
 import cookieParser from 'cookie-parser';
 import authRoutes from './routes/auth.routes.js';
 import InfoRoutes from './routes/user.routes.js';
+import questRoutes from './routes/quests.routes.js';
 import './config/dotenv.js';
 
 const app = express();
@@ -25,6 +26,7 @@ mongoose.connect(process.env.MONGO_URI, {
 
 app.use('/api/auth', authRoutes);
 app.use('/api/user', InfoRoutes);
+app.use('/api/quests', questRoutes);
 
 app.get("/",(req,res)=>{
     res.send("Testing")
