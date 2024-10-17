@@ -14,13 +14,16 @@ const RewardsModal = ({ show, onClose, reward, experience, setExperience, image,
           X
         </button>
 
-        <h2 className="text-3xl font-bold mb-4 text-sky-blue">Fill in the details!</h2>
-        <p className="text-xl mb-6 text-teal-700">You're close to earning an exciting reward!</p>
+        <h2 className="text-3xl font-bold mb-4 text-indigo-700">You're Almost There!</h2>
+        <p className="text-xl mb-6 text-gray-700">You're just one step away from unlocking this amazing reward:</p>
 
-        <div className="bg-gradient-to-b from-mint to-light-green border-2 border-yellow-400 rounded-lg p-6 mb-6 shadow-lg">
-          <h3 className="text-2xl font-semibold mb-2 text-teal-850">{reward.title}</h3>
-          <p className="text-xl font-bold text-teal-700">Points earned: {reward.points}</p>
+        <div className="bg-gradient-to-r from-yellow-100 to-yellow-200 border-2 border-yellow-400 rounded-lg p-6 mb-6 shadow-lg">
+          <h3 className="text-2xl font-semibold mb-2 text-indigo-800">{reward.title}</h3>
+          <p className="text-xl font-bold text-indigo-700">Points to be earned: {reward.points}</p>
         </div>
+        <p className="text-gray-600 text-center mb-4">
+          Don’t stop now! Complete this last step and the reward is all yours. Keep up the great work!
+        </p>
 
         {/* Experience input */}
         <textarea
