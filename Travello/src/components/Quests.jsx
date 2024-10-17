@@ -1,22 +1,12 @@
 import React, { useState, useEffect } from 'react';
 import { useSpring, animated } from 'react-spring';
 import Confetti from 'react-confetti';
+import { MapPin, Camera, Trophy } from 'lucide-react';
+import RewardsModal from './RewardsModal';
 import { Map, Marker } from 'react-map-gl'; 
-import { MapPin, Camera, Trophy, Star, Share2 } from 'lucide-react';
+import { toast } from 'react-hot-toast'; 
 
-const MAPBOX_TOKEN = 'YOUR_MAPBOX_TOKEN_HERE'; // Replace with your actual Mapbox token
-
-const QuestDetails = ({ quest }) => {
-  return (
-    <div>
-      <h3 className="text-xl font-medium text-indigo-800 mb-2">{quest.title} - Details</h3>
-      <p className="text-gray-600 mb-4">{quest.description}</p>
-      <p className="text-gray-600 mb-4">
-        To complete this quest, you need to: {quest.details}
-      </p>
-    </div>
-  );
-};
+const MAPBOX_TOKEN = 'YOUR_MAPBOX_TOKEN_HERE';
 
 const Quests = () => {
   const [quests, setQuests] = useState([
@@ -37,7 +27,7 @@ const Quests = () => {
       type: 'location',
       points: 75,
       completed: false,
-      location: [-122.4194, 37.7749], // Example coordinates (San Francisco)
+      location: [-122.4194, 37.7749],
     },
     {
       id: 3,
@@ -93,12 +83,16 @@ const Quests = () => {
       type: 'location',
       points: 90,
       completed: false,
-      location: [-0.127758, 51.507351], // Example coordinates (London)
+      location: [-0.127758, 51.507351], 
     },
   ]);
 
   const [showConfetti, setShowConfetti] = useState(false);
-  const [selectedQuest, setSelectedQuest] = useState(null);
+  const [selectedQuest, setSelectedQuest] = useState(null); 
+  const [showRewardsModal, setShowRewardsModal] = useState(false); 
+  const [reward, setReward] = useState({ title: '', description: '', points: 0 });
+  const [experience, setExperience] = useState('');
+  const [image, setImage] = useState(null);
   const [groupName, setGroupName] = useState('');
   const [groupMembers, setGroupMembers] = useState([]);
 
@@ -107,43 +101,41 @@ const Quests = () => {
     transform: selectedQuest ? 'translateY(0)' : 'translateY(50px)',
   });
 
-  const completeQuest = (id) => {
+  const selectQuest = (id) => {
+    const quest = quests.find(q => q.id === id);
+    setSelectedQuest(quest);
+  };
+
+  const onClose = ()=>{
+    setShowRewardsModal(false);
+    setShowConfetti(false)
+  }
+
+  const handleClaimReward = () => {
+    const newReward = {
+      title: `Reward for ${selectedQuest.title}`,
+      description: selectedQuest.details,
+      points: selectedQuest.points,
+    };
+
+    setReward(newReward);
+    setShowRewardsModal(true); 
+  };
+
+  const claimReward = () => {
+    if (!experience || !image) {
+      toast.error('Please fill in all fields before claiming your reward!');
+      return;
+    }
     setQuests(quests.map(quest =>
-      quest.id === id ? { ...quest, completed: true } : quest
+      quest.id === selectedQuest.id ? { ...quest, completed: true } : quest
     ));
+    setShowRewardsModal(false);
     setShowConfetti(true);
     setTimeout(() => setShowConfetti(false), 3000);
   };
 
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setQuests(prevQuests => {
-        const newQuest = {
-          id: prevQuests.length + 1,
-          title: `New Adventure ${prevQuests.length + 1}`,
-          description: "A surprise quest has appeared!",
-          details: "Get ready for a fun challenge!",
-          type: Math.random() > 0.5 ? 'photo' : 'location',
-          points: Math.floor(Math.random() * 100) + 50,
-          completed: false,
-          location: [-122.4194 + (Math.random() - 0.5) * 0.1, 37.7749 + (Math.random() - 0.5) * 0.1],
-        };
-        return [...prevQuests, newQuest];
-      });
-    }, 30000); // New quest every 30 seconds
-
-    return () => clearInterval(interval);
-  }, []);
-
-  const shareQuest = (quest) => {
-    const message = `I've completed the quest: "${quest.title}" and earned ${quest.points} points! #QuestAdventure`;
-    navigator.share({ title: quest.title, text: message })
-      .then(() => console.log('Shared successfully'))
-      .catch(err => console.error('Error sharing:', err));
-  };
-
   const createGroup = () => {
-    // Logic to create a group and share with friends can be implemented here.
     alert(`Group "${groupName}" created with members: ${groupMembers.join(', ')}`);
     setGroupName('');
     setGroupMembers([]);
@@ -154,6 +146,7 @@ const Quests = () => {
       <h1 className="text-4xl font-bold text-center mb-8 text-indigo-800">Adventure Quests</h1>
       
       <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+
         <div className="bg-white rounded-lg shadow-lg p-6 overflow-y-auto max-h-[70vh]">
           <h2 className="text-2xl font-semibold mb-4 text-indigo-700">Available Quests</h2>
           {quests.map(quest => (
@@ -164,7 +157,7 @@ const Quests = () => {
                   ? 'bg-green-100 border-green-300'
                   : 'bg-indigo-50 border-indigo-200 hover:bg-indigo-100'
               } border-2`}
-              onClick={() => setSelectedQuest(quest)}
+              onClick={() => selectQuest(quest.id)} 
             >
               <div className="flex items-center justify-between">
                 <h3 className="text-lg font-medium text-indigo-800">{quest.title}</h3>
@@ -185,11 +178,16 @@ const Quests = () => {
           ))}
         </div>
         
+        {/* Quest Details */}
         <div className="bg-white rounded-lg shadow-lg p-6">
           <h2 className="text-2xl font-semibold mb-4 text-indigo-700">Quest Details</h2>
           {selectedQuest ? (
             <animated.div style={questAnimation}>
-              <QuestDetails quest={selectedQuest} />
+              <h3 className="text-xl font-medium text-indigo-800 mb-2">{selectedQuest.title} - Details</h3>
+              <p className="text-gray-600 mb-4">{selectedQuest.description}</p>
+              <p className="text-gray-600 mb-4">
+                To complete this quest, you need to: {selectedQuest.details}
+              </p>
               <div className="flex items-center justify-between mb-4">
                 <span className="text-indigo-600 font-medium">
                   {selectedQuest.points} points
@@ -203,24 +201,33 @@ const Quests = () => {
                 </span>
               </div>
               <button
-                className="bg-indigo-600 text-white px-4 py-2 rounded hover:bg-indigo-700 transition"
-                onClick={() => completeQuest(selectedQuest.id)}
+                onClick={handleClaimReward}
+                className={`w-full py-2 rounded-lg text-white font-semibold transition duration-300 ${
+                  selectedQuest.completed ? 'bg-gray-300 cursor-not-allowed' : 'bg-indigo-600 hover:bg-indigo-700'
+                }`}
+                disabled={selectedQuest.completed}
               >
-                Complete Quest
-              </button>
-              <button
-                className="bg-gray-300 text-gray-700 px-4 py-2 rounded hover:bg-gray-400 transition ml-2"
-                onClick={() => shareQuest(selectedQuest)}
-              >
-                <Share2 className="mr-1" size={18} /> Share Quest
+                {selectedQuest.completed ? 'Completed' : 'Claim Reward'}
               </button>
             </animated.div>
           ) : (
-            <p className="text-gray-600">Select a quest to see the details.</p>
+            <p className="text-gray-600">Select a quest to see details.</p>
           )}
         </div>
       </div>
-      
+
+      {showConfetti && <Confetti />}
+
+      <RewardsModal
+        show={showRewardsModal}
+        onClose={onClose}
+        claimReward = {claimReward}
+        reward={reward}
+        experience={experience}
+        setExperience={setExperience}
+        image={image}
+        setImage={setImage}
+      />
       <div className="bg-white rounded-lg shadow-lg p-6 mt-8">
         <h2 className="text-2xl font-semibold mb-4 text-indigo-700">Create a Group Quest</h2>
         <div className="flex flex-col mb-4">
@@ -246,8 +253,6 @@ const Quests = () => {
           Create Group
         </button>
       </div>
-
-      {showConfetti && <Confetti />}
       <div className="mt-8">
         <h2 className="text-2xl font-semibold text-indigo-700">Map View</h2>
         <Map
