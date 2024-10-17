@@ -63,6 +63,8 @@ const ReviewSection = () => {
 
         <div className="bg-off-white p-8 rounded-lg shadow-lg">
             <h2 className="text-3xl font-bold text-center text-teal-600 my-8">What Our Travelers Say</h2>
+
+
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
                 {reviews.map(review => (
                     <ReviewCard key={review.id} review={review} />

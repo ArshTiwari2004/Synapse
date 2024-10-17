@@ -94,6 +94,7 @@ const App = () => {
                   <OfflineMode/>
                 </ProtectedRoute>} />
               <Route path="*" element={<NotFoundPage />} />
+              <Route path="/offline-mode" element ={<OfflineMode />} />
             </Routes>
           </main>
           <Footer />
