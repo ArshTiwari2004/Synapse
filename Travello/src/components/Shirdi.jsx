@@ -1,8 +1,5 @@
 import React from 'react';
 
-
-import ShirdiImage from './shirdi.jpg';
-
 const Shirdi = () => {
   const handleExport = () => {
     
@@ -14,7 +11,7 @@ const Shirdi = () => {
       <div className="max-w-7xl mx-auto bg-white shadow-2xl rounded-lg overflow-hidden transform transition-all duration-500 hover:scale-105">
         
         {/* Image Section */}
-        <img src={ShirdiImage} alt="Shirdi" className="w-full h-72 object-cover" />
+        <img src={shirdi.jpg} alt="Shirdi" className="w-full h-72 object-cover" />
         
         {/* Content Section */}
         <div className="p-8">

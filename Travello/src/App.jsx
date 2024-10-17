@@ -48,8 +48,17 @@ import NatureAdventure from "./components/NatureAdventure.jsx";
 import TraditionalMusicDance from "./components/TraditionalMusicDance.jsx";
 import Local from "./components/Local";
 import Udupi from "./components/Udupi.jsx";
-
-
+import Sdg from "./components/Sdg.jsx";
+import Ajanta from "./components/Ajantacaves.jsx";
+import AnejhariCamp from "./components/Anejharicamp.jsx";
+import ArbiFalls from "./components/Arbifall.jsx";
+import KudluTeertha from "./components/Kudlufalls.jsx";
+import KemmannuBridge from "./components/Kemmannu.jsx";
+import Gomateshwara from "./components/Gomateshwara.jsx";
+import Shirdi from "./components/Shirdi.jsx";
+import Lonavla from "./components/Lonavla.jsx";
+import GatewayofIndia from "./components/GatewayofIndia.jsx";
+import Kohlapur from "./components/Kohlapur.jsx";
 
 const App = () => {
 
@@ -115,6 +124,18 @@ const App = () => {
               <Route path ="/traditional-music-dance" element={<TraditionalMusicDance />} />
               <Route path ="/local" element={<Local />} />
               <Route path ="/udupi" element={<Udupi />} />
+              <Route path ="/sdg" element={<Sdg />} />
+              <Route path ="/attraction/1" element={<KudluTeertha />} />
+              <Route path ="/attraction/2" element={<ArbiFalls />} />
+              <Route path ="/attraction/3" element={<KemmannuBridge />} />
+              <Route path ="/attraction/4" element={<AnejhariCamp />} />
+              <Route path ="/attraction/5" element={<Gomateshwara />} />
+              <Route path ="/attraction/6" element={<GatewayofIndia/>} />
+              <Route path ="/attraction/7" element={<Ajanta />} />
+              <Route path ="/attraction/8" element={<Shirdi />} />
+              <Route path ="/attraction/9" element={<Kohlapur />} />
+              <Route path ="/attraction/10" element={<Lonavla />} />
+
             </Routes>
           </main>
           <Footer />

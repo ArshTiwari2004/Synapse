@@ -1,5 +1,4 @@
 import React from 'react';
-import AnejhariCampImage from './anejhari.jpg';
 
 const AnejhariCamp = () => {
   const handleExport = () => {
@@ -12,7 +11,7 @@ const AnejhariCamp = () => {
       <div className="max-w-7xl mx-auto bg-white shadow-2xl rounded-lg overflow-hidden transform transition-all duration-500 hover:scale-105">
         
         {/* Image Section */}
-        <img src={AnejhariCampImage} alt="Anejhari Butterfly Camp" className="w-full h-72 object-cover" />
+        <img src={anejhari.jpg} alt="Anejhari Butterfly Camp" className="w-full h-72 object-cover" />
         
         {/* Content Section */}
         <div className="p-8">

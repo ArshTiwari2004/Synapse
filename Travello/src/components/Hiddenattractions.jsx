@@ -9,19 +9,55 @@ import { MapPin, Camera, Info, Share2 } from 'lucide-react';
 const MAPBOX_TOKEN = import.meta.env.VITE_MAPBOX_TOKEN;
 
 const attractionsData = {
-  Maharashtra: [
-    { id: 1, name: "Gateway of India", description: "A famous monument in Mumbai.", latitude: 18.9218, longitude: 72.8347, photo: "Gatewayofindia.jpg" },
-    { id: 2, name: "Ajanta Caves", description: "Famous rock-cut caves.", latitude: 20.5465, longitude: 75.7006, photo: "Ajantacaves.jpg" },
-    { id: 3, name: "Shirdi", description: "Famous pilgrimage site.", latitude: 19.7664, longitude: 74.3967, photo: "shirdi.jpg" },
-    { id: 4, name: "Kolhapur", description: "Known for its heritage.", latitude: 16.7064, longitude: 74.2434, photo: "kohlapur.jpg" },
-    { id: 5, name: "Lonavala", description: "Hill station popular for its scenery.", latitude: 18.7532, longitude: 73.4091, photo: "lonavla.jpg" },
+  Udupi: [
+    {
+      id: 1,
+      name: "Kudlu Teertha Falls",
+      description: "Located about 42 km from Udupi, this hidden gem is a stunning waterfall surrounded by lush greenery. It requires a short trek through the forest to reach the falls.",
+      latitude: 13.5015, 
+      longitude: 74.8544,
+      photo: "kudlu_teertha_falls.jpg"
+    },
+    {
+      id: 2,
+      name: "Arbi Falls",
+      description: "A small yet scenic waterfall located near Manipal, perfect for a peaceful retreat in nature, especially during the monsoon season.",
+      latitude: 13.3551, 
+      longitude: 74.7931,
+      photo: "arbifalls.jpg"
+    },
+    {
+      id: 3,
+      name: "Kemmannu Hanging Bridge",
+      description: "A quaint, scenic suspension bridge near Udupi that offers a beautiful view of the river and surrounding greenery.",
+      latitude: 13.3789, 
+      longitude: 74.7205,
+      photo: "kemmannu_hanging_bridge.jpg"
+    },
+    {
+      id: 4,
+      name: "Anejhari Butterfly Camp",
+      description: "Situated in the Mookambika Wildlife Sanctuary, this is a tranquil spot for nature lovers and a great place to see a variety of butterflies.",
+      latitude: 13.6444, 
+      longitude: 74.7380,
+      photo: "anejhari.jpg"
+    },
+    {
+      id: 5,
+      name: "Karkala Gomateshwara Statue",
+      description: "Though not widely known, this 42-foot tall statue in Karkala (about 37 km from Manipal) is a peaceful, serene spot with panoramic views from the hilltop.",
+      latitude: 13.2104, 
+      longitude: 74.9884,
+      photo: "gomateshwara.jpeg"
+    }
   ],
-  UttarPradesh: [
-    { id: 6, name: "Taj Mahal", description: "An ivory-white marble mausoleum.", latitude: 27.1751, longitude: 78.0421, photo: "agra.jpg" },
-    { id: 7, name: "Varanasi", description: "City on the banks of the Ganges.", latitude: 25.3176, longitude: 82.9739, photo: "varanasi.jpg" },
-    { id: 8, name: "Lucknow", description: "Known for its rich history and architecture.", latitude: 26.8468, longitude: 80.9462, photo: "lucknow.jpg" },
-    { id: 9, name: "Agra Fort", description: "A UNESCO World Heritage Site.", latitude: 27.1750, longitude: 78.0081, photo: "agrafort.jpg" },
-    { id: 10, name: "Fatehpur Sikri", description: "Historical city founded by Akbar.", latitude: 27.1047, longitude: 77.6581, photo: "fatehpur.jpg" },
+  
+  Maharashtra: [
+    { id: 6, name: "Gateway of India", description: "A famous monument in Mumbai.", latitude: 18.9218, longitude: 72.8347, photo: "Gatewayofindia.jpg" },
+    { id: 7, name: "Ajanta Caves", description: "Famous rock-cut caves.", latitude: 20.5465, longitude: 75.7006, photo: "Ajantacaves.jpg" },
+    { id: 8, name: "Shirdi", description: "Famous pilgrimage site.", latitude: 19.7664, longitude: 74.3967, photo: "shirdi.jpg" },
+    { id: 9, name: "Kolhapur", description: "Known for its heritage.", latitude: 16.7064, longitude: 74.2434, photo: "kohlapur.jpg" },
+    { id: 10, name: "Lonavala", description: "Hill station popular for its scenery.", latitude: 18.7532, longitude: 73.4091, photo: "lonavla.jpg" },
   ],
   Delhi: [
     { id: 11, name: "Red Fort", description: "A symbol of India's freedom.", latitude: 28.6562, longitude: 77.2410, photo: "redfort.jpg" },

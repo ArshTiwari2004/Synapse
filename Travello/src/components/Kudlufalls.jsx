@@ -1,5 +1,5 @@
 import React from 'react';
-import KudluTeerthaImage from './kudlufall.jpg';
+
 
 const KudluTeertha = () => {
   const handleExport = () => {
@@ -11,7 +11,7 @@ const KudluTeertha = () => {
       <div className="max-w-7xl mx-auto bg-white shadow-2xl rounded-lg overflow-hidden transform transition-all duration-500 hover:scale-105">
         
         {/* Image Section */}
-        <img src={KudluTeerthaImage} alt="Kudlu Teertha Falls" className="w-full h-72 object-cover" />
+        <img src={kudlufall.jpg} alt="Kudlu Teertha Falls" className="w-full h-72 object-cover" />
         
         {/* Content Section */}
         <div className="p-8">

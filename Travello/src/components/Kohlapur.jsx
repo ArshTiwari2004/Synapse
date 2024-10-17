@@ -1,5 +1,5 @@
 import React from 'react';
-import KohlapurImage from './kohlapur.jpg';
+
 
 const Kohlapur = () => {
   const handleExport = () => {
@@ -12,7 +12,7 @@ const Kohlapur = () => {
       <div className="max-w-7xl mx-auto bg-white shadow-2xl rounded-lg overflow-hidden transform transition-all duration-500 hover:scale-105">
         
         {/* Image Section */}
-        <img src={KohlapurImage} alt="Kolhapur" className="w-full h-72 object-cover" />
+        <img src={kohlapur.jpg} alt="Kolhapur" className="w-full h-72 object-cover" />
         
         {/* Content Section */}
         <div className="p-8">

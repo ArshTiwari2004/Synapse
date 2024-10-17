@@ -147,6 +147,11 @@ const Dashboard = () => {
                             <FaDownload className="mr-3" /> Carbon Reducer Map 
                         </Link>
 
+                        <Link to="/sdg" className="text-white text-lg font-semibold hover:bg-[#00bd9d] p-3 rounded-md flex items-center transition ease-in-out duration-300">
+                            <FaDownload className="mr-3" /> Our Social Development Goals
+                        </Link>
+
+
 
                     </div>
                 </div>

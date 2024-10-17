@@ -1,5 +1,5 @@
 import React from 'react';
-import GomateshwaraImage from './gomateshwara.jpeg';
+
 
 const Gomateshwara = () => {
   const handleExport = () => {
@@ -12,7 +12,7 @@ const Gomateshwara = () => {
       <div className="max-w-7xl mx-auto bg-white shadow-2xl rounded-lg overflow-hidden transform transition-all duration-500 hover:scale-105">
         
         {/* Image Section */}
-        <img src={GomateshwaraImage} alt="Karkala Gomateshwara Statue" className="w-full h-72 object-cover" />
+        <img src="/gomateshwara.jpeg" alt="Karkala Gomateshwara Statue" className="w-full h-72 object-cover" />
         
         {/* Content Section */}
         <div className="p-8">
@@ -51,15 +51,8 @@ const Gomateshwara = () => {
             </p>
           </div>
 
-          {/* Export Button */}
-          <div className="text-center">
-            <button
-              onClick={handleExport}
-              className="bg-#49C6E5 hover:bg-#54DEFD text-white font-bold py-3 px-8 rounded-lg shadow-lg transition duration-300 ease-in-out transform hover:scale-105"
-            >
-              Export Details
-            </button>
-          </div>
+          
+          
         </div>
       </div>
     </div>

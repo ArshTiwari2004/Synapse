@@ -4,7 +4,7 @@ import 'mapbox-gl/dist/mapbox-gl.css';
 import { Download, Wifi, WifiOff } from 'lucide-react';
 import { saveAs } from 'file-saver'; // Import FileSaver.js
 
-const MAPBOX_TOKEN = 'pk.eyJ1IjoiYXJzaHRpd2FyaSIsImEiOiJjbTJhODE2dm8wZ2MxMmlxdTJkbnJ1aTZnIn0.m9ky2-2MfcdA37RIVoxC_w';
+const MAPBOX_TOKEN = import.meta.env.VITE_MAPBOX_TOKEN;
 
 const OfflineMode = () => {
   const [isOffline, setIsOffline] = useState(!navigator.onLine);
