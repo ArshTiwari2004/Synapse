@@ -28,7 +28,7 @@ const GreenPointsSystem = () => {
         },
         (error) => {
           console.error('Error getting location:', error);
-          setError('Failed to retrieve location. Please enable location services.');
+          
           setLoading(false);
         }
       );
@@ -113,7 +113,7 @@ const GreenPointsSystem = () => {
       setCarbonEmissions(response.data.data.attributes.carbon_kg);
     } catch (error) {
       console.error('Error calculating carbon emissions:', error);
-      setError('Failed to calculate carbon emissions using the API.');
+      
       const approximateEmissions = generateRandomCarbonEmissions(distance, transportMode);
       setCarbonEmissions(approximateEmissions);
     }
