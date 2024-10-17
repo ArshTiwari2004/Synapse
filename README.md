@@ -10,17 +10,11 @@ Our project allows `<insert consumer segment>` to do A, B and C by D, E and F. W
 
 ## ✨ Features
 
-App:
-
--   Ultra cool feature #1
--   Pro max feature #2
--   Feature #3
-
 Website:
-
--   Ultra cool feature #1
--   Pro max feature #2
--   Feature #3
+- Eco-Friendly Travel Encouragement: The **Green Points System** rewards eco-friendly actions like sustainable travel choices and walking with points that can be redeemed for local rewards, encouraging sustainable behavior. The **Carbon Footprint Tracker** monitors trip emissions and suggests greener alternatives to reduce environmental impact, promoting responsible travel decisions.
+- AI-Powered Personalization: The **Dynamic Itinerary Generator** in Travello uses AI to create personalized travel plans, adjusting them based on user preferences, real-time events, and weather updates. This ensures a customized and flexible travel experience.
+- Gamification: Travello rewards users with points, badges, and achievements for completing challenges, encouraging exploration. As users level up, they unlock exclusive content and discover hidden locations.
+- Challenges & Quest: Travello offers gamified experiences with photo challenges, leaderboards, and culture-based quests, enhancing user engagement. Successful participation earns rewards, making travel both fun and competitive.
 
 ## 🟢 Access
 
@@ -34,7 +28,7 @@ To deploy the application locally using docker, follow these steps:
 1. Clone the repository:
 
     ```bash
-    git clone https://github.com/your-team-repo/manipal-hackathon-2024.git
+    git clone https://github.com/Synapse/manipal-hackathon-2024.git
     cd manipal-hackathon-2024
     ```
 
@@ -65,7 +59,7 @@ Follow these steps to run the project locally:
 1. Clone the repository:
 
     ```bash
-    git clone https://github.com/your-team-repo/manipal-hackathon-2024.git
+    git clone https://github.com/Synapse/manipal-hackathon-2024.git
     cd manipal-hackathon-2024
     ```
 
