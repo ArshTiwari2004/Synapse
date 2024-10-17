@@ -5,7 +5,7 @@ import Carousel from './Carousel';
 
 const About = () => {
   return (
-    <div className="py-16 text-center bg-off-white mt-8"> {/* Off-white background */}
+    <div className="py-16 text-center bg-off-white mt-8" id='about'> {/* Off-white background */}
       <div className="container mx-auto">
         <h2 className="text-4xl font-bold mb-6 text-teal-green" id="about-section"> {/* Teal Green heading */}
           About Our Gamified Tourism Platform
