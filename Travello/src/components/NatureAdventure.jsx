@@ -8,25 +8,25 @@ const NatureAdventure = () => {
     {
       name: 'Coorg Trekking',
       description: 'Trek through lush coffee plantations and misty hills.',
-      image: 'https://www.karnatakatourism.org/wp-content/uploads/2020/06/Coorg-1.jpg',
+      image: 'coorg.jpg',
       difficulty: 'Moderate',
     },
     {
       name: 'Dandeli White Water Rafting',
       description: 'Experience thrilling rapids on the Kali River.',
-      image: 'https://www.karnatakatourism.org/wp-content/uploads/2020/06/Dandeli-1.jpg',
+      image: 'rafting.png',
       difficulty: 'Challenging',
     },
     {
       name: 'Nandi Hills Paragliding',
       description: 'Soar above the scenic Nandi Hills for a bird\'s eye view.',
-      image: 'https://www.karnatakatourism.org/wp-content/uploads/2020/06/Nandi-Hills-1.jpg',
+      image: 'para.jpg',
       difficulty: 'Moderate',
     },
     {
       name: 'Gokarna Beach Trek',
       description: 'Hike along pristine beaches and rocky cliffs.',
-      image: 'https://www.karnatakatourism.org/wp-content/uploads/2020/06/Gokarna-1.jpg',
+      image: 'beach.jpg',
       difficulty: 'Easy',
     },
   ];

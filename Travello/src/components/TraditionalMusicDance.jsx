@@ -8,25 +8,25 @@ const TraditionalMusicDance = () => {
     {
       name: 'Yakshagana',
       description: 'Traditional theater form combining dance, music, and dialogue.',
-      image: 'https://www.karnatakatourism.org/wp-content/uploads/2020/06/Yakshagana-1.jpg',
+      image: 'yoksha.jpg',
       location: 'Mangalore',
     },
     {
       name: 'Bharatanatyam',
       description: 'Classical dance form originating from Tamil Nadu but popular in Karnataka.',
-      image: 'https://www.karnatakatourism.org/wp-content/uploads/2020/06/Bharatanatyam-1.jpg',
+      image: 'bahratnatyam.jpg',
       location: 'Bangalore',
     },
     {
       name: 'Carnatic Music Concert',
       description: 'Traditional South Indian classical music performance.',
-      image: 'https://www.karnatakatourism.org/wp-content/uploads/2020/06/Carnatic-Music-1.jpg',
+      image: 'music.jpg',
       location: 'Mysore',
     },
     {
       name: 'Dollu Kunitha',
       description: 'Drum dance popular in the southern parts of Karnataka.',
-      image: 'https://www.karnatakatourism.org/wp-content/uploads/2020/06/Dollu-Kunitha-1.jpg',
+      image: 'dollu.jpg',
       location: 'Tumkur',
     },
   ];

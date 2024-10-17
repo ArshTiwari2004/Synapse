@@ -8,22 +8,22 @@ const LocalCuisines = () => {
     {
       name: 'Bisi Bele Bath',
       description: 'A spicy, rice-based dish with lentils and vegetables.',
-      image: 'https://www.vegrecipesofindia.com/wp-content/uploads/2021/04/bisi-bele-bath-recipe-1.jpg',
+      image: 'bbjpeg',
     },
     {
       name: 'Mysore Masala Dosa',
       description: 'A crispy crepe filled with spicy potato mixture and red chutney.',
-      image: 'https://www.vegrecipesofindia.com/wp-content/uploads/2021/06/mysore-masala-dosa-2.jpg',
+      image: 'md.jpeg',
     },
     {
       name: 'Neer Dosa',
       description: 'A thin, lacy rice crepe popular in coastal Karnataka.',
-      image: 'https://www.vegrecipesofindia.com/wp-content/uploads/2021/05/neer-dosa-recipe-1.jpg',
+      image: 'nd.jpg',
     },
     {
       name: 'Ragi Mudde',
       description: 'A healthy ball made from finger millet flour, often served with sambar.',
-      image: 'https://www.vegrecipesofindia.com/wp-content/uploads/2018/08/ragi-mudde-recipe-1.jpg',
+      image: 'ragi.jpg',
     },
   ];
 
@@ -35,7 +35,7 @@ const LocalCuisines = () => {
       </Link>
       <h1 className="text-4xl font-bold mb-8 text-orange-800 flex items-center">
         <FaUtensils className="mr-4" />
-        Local Cuisines of Karnataka
+        Local Cuisines of Udupi
       </h1>
       <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
         {cuisines.map((cuisine, index) => (
