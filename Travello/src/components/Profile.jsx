@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios'; // Import axios if using it
-import { FaUser, FaEnvelope, FaPhone, FaMapMarkerAlt, FaGlobe, FaVenusMars, FaBirthdayCake, FaKey, FaEdit } from 'react-icons/fa';
+import { FaUser, FaEnvelope, FaPhone, FaMapMarkerAlt, FaGlobe, FaVenusMars, FaBirthdayCake, FaKey, FaEdit, FaFacebook, FaInstagram, FaLinkedin, FaTwitter } from 'react-icons/fa';
 
 function ProfileField({ label, value, Icon }) {
   return (
@@ -25,7 +25,13 @@ export default function Profile() {
     location: '',
     country: '',
     gender: '',
-    dob: ''
+    dob: '',
+    socials: {
+      facebook: '',
+      instagram: '',
+      linkedin: '',
+      twitter: ''
+    }
   });
 
   const [password, setPassword] = useState({ current: '', newPassword: '', confirmPassword: '' });
@@ -43,8 +49,9 @@ export default function Profile() {
           phone: userData.phone,
           country: userData.country,
           gender: userData.gender,
-          dob: new Date(userData.dateOfBirth).toLocaleDateString(), 
-          location: 'Your Location' 
+          dob: new Date(userData.dateOfBirth).toLocaleDateString(),
+          location: 'Your Location',
+          socials: userData.socials || {}
         });
       } catch (error) {
         console.error('Error fetching user profile:', error);
@@ -52,13 +59,14 @@ export default function Profile() {
     };
 
     fetchUserProfile();
-  }, []); 
+  }, []);
 
   const handlePasswordChange = (e) => {
     e.preventDefault();
     if (password.newPassword === password.confirmPassword) {
       alert('Password changed successfully!');
       setShowChangePassword(false);
+      // Here you can add the logic to send a request to change the password
     } else {
       alert('Passwords do not match!');
     }
@@ -68,6 +76,7 @@ export default function Profile() {
     e.preventDefault();
     alert('Profile updated successfully!');
     setShowEditProfile(false);
+    // Here you can add the logic to send a request to update the profile
   };
 
   return (
@@ -99,6 +108,16 @@ export default function Profile() {
               <ProfileField label="Country" value={profile.country} Icon={FaGlobe} />
               <ProfileField label="Gender" value={profile.gender} Icon={FaVenusMars} />
               <ProfileField label="Date of Birth" value={profile.dob} Icon={FaBirthdayCake} />
+            </div>
+          </div>
+
+          <div className="mt-8">
+            <h2 className="text-lg font-semibold text-emerald-800 mb-4">Social Media Links</h2>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+              <ProfileField label="Facebook" value={profile.socials.facebook || 'Not provided'} Icon={FaFacebook} />
+              <ProfileField label="Instagram" value={profile.socials.instagram || 'Not provided'} Icon={FaInstagram} />
+              <ProfileField label="LinkedIn" value={profile.socials.linkedin || 'Not provided'} Icon={FaLinkedin} />
+              <ProfileField label="Twitter" value={profile.socials.twitter || 'Not provided'} Icon={FaTwitter} />
             </div>
           </div>
 
@@ -184,21 +203,21 @@ export default function Profile() {
                 onChange={(e) => setProfile({ ...profile, lastName: e.target.value })}
               />
               <input
-                type="email"
-                placeholder="Email"
-                className="w-full mb-3 p-2 border rounded"
-                value={profile.email}
-                onChange={(e) => setProfile({ ...profile, email: e.target.value })}
-              />
-              <input
                 type="text"
                 placeholder="Phone"
                 className="w-full mb-3 p-2 border rounded"
                 value={profile.phone}
                 onChange={(e) => setProfile({ ...profile, phone: e.target.value })}
               />
+              <input
+                type="text"
+                placeholder="Country"
+                className="w-full mb-3 p-2 border rounded"
+                value={profile.country}
+                onChange={(e) => setProfile({ ...profile, country: e.target.value })}
+              />
               <button type="submit" className="bg-emerald-700 text-white px-4 py-2 rounded w-full hover:bg-emerald-600">
-                Save Changes
+                Update
               </button>
               <button
                 onClick={() => setShowEditProfile(false)}
