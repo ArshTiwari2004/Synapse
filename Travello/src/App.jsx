@@ -9,6 +9,10 @@ import { Toaster } from 'react-hot-toast';
 import ReviewSection from "./components/Review";
 import About from "./components/Aboutus";
 import Dashboard from "./components/Dashboard";
+import AchievementSection from "./components/Acheivemnt";
+import BlogSection from "./components/Blog";
+import Newsletter from "./components/Newsletter";
+
 
 function App() {
 
@@ -37,7 +41,10 @@ const Landing = () => {
     <div className="flex flex-col">
       <LandingPage />
       <About />
+      <AchievementSection />
       <ReviewSection />
+      <BlogSection />
+      <Newsletter />
     </div>
   );
 };
