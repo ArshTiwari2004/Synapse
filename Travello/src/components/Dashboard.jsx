@@ -27,7 +27,7 @@ const Dashboard = () => {
             title: 'Hidden Attractions',
             description: 'Explore secret spots with navigation and location-based tips.',
             image: 'hiddenattraction.jpeg',
-            link: '/hidden-attractions',
+            link: '/hidden-attraction-maps',
             icon: <FaMapMarkedAlt size={45} className="text-[#49c6e5]" />,
         },
         {
