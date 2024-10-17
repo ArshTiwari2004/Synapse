@@ -36,7 +36,9 @@ import Challenge from "./components/Challenge.jsx";
 import AchievementSection from "./components/Acheivemnt";
 import BlogSection from "./components/Blog";
 import Newsletter from "./components/Newsletter";
+import OfflineMode from "./components/Offlinemode.jsx";
 import GreenPointsSystem from "./components/GreenPointsSystem.jsx";
+import EcoFriendlyPage from "./components/Ecofriendly.jsx";
 
 
 
@@ -89,8 +91,14 @@ const App = () => {
                 <ProtectedRoute>
                   <HiddenAttractions />
                 </ProtectedRoute>} />
+                <Route path="/offline-mode" element={
+                <ProtectedRoute>
+                  <OfflineMode/>
+                </ProtectedRoute>} />
               <Route path="*" element={<NotFoundPage />} />
+              <Route path="/offline-mode" element ={<OfflineMode />} />
               <Route path="/green-points-system" element={<GreenPointsSystem />} />
+              <Route path="/eco-friendly" element={<EcoFriendlyPage />} />
             </Routes>
           </main>
           <Footer />

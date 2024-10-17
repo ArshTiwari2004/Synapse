@@ -88,7 +88,7 @@ const HiddenAttractions = () => {
           <p className="text-sm text-gray-600 mb-2">{selectedAttraction.description}</p>
           <a
             href={`/attraction/${selectedAttraction.id}`} // Adjust the route based on your routing setup
-            className="w-full bg-blue-600 text-white py-2 rounded-lg hover:bg-blue-700 transition-colors duration-300 flex items-center justify-center"
+            className="w-full bg-teal-600 text-white py-2 rounded-lg hover:bg-blue-700 transition-colors duration-300 flex items-center justify-center"
           >
             Explore this page
           </a>
@@ -116,7 +116,7 @@ const HiddenAttractions = () => {
         {renderPopup()}
       </Map>
       <div className="absolute top-4 left-4 right-4 bg-white bg-opacity-90 rounded-lg shadow-lg p-4">
-        <h2 className="text-2xl font-bold text-center mb-4">Hidden Attractions</h2>
+        <h2 className="text-2xl font-bold text-teal-800 text-center mb-4">Hidden Attractions</h2>
       </div>
       <Tooltip id="info-tooltip" />
       {/* {selectedAttraction && <Confetti />} */} 

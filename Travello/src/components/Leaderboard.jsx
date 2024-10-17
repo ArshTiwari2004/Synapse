@@ -5,25 +5,25 @@ import { motion } from 'framer-motion';
 
 
 const globalUsersData = [
-  { id: 1, name: 'John Doe', location: 'Maharashtra', score: 9500, badges: ['CityExplorer', 'FoodExplorer', 'GoldMedalist'], avatar: 'https://i.pravatar.cc/150?img=1' },
-  { id: 2, name: 'Jane Smith', location: 'Tamil Nadu', score: 9200, badges: ['CulturalAmbassador', 'HeritageHunter', 'SilverMedalist'], avatar: 'https://i.pravatar.cc/150?img=2' },
-  { id: 3, name: 'Mike Johnson', location: 'Uttar Pradesh', score: 8900, badges: ['PhotoPro', 'ArtAdmirer', 'BronzeMedalist'], avatar: 'https://i.pravatar.cc/150?img=3' },
-  { id: 4, name: 'Emily Brown', location: 'Delhi', score: 8700, badges: ['CityExplorer', 'FoodExplorer'], avatar: 'https://i.pravatar.cc/150?img=4' },
-  { id: 5, name: 'David Lee', location: 'Maharashtra', score: 8500, badges: ['HeritageHunter', 'PhotoPro'], avatar: 'https://i.pravatar.cc/150?img=5' },
-  { id: 6, name: 'Sarah Davis', location: 'Karnataka', score: 8400, badges: ['CulturalAmbassador', 'BronzeMedalist'], avatar: 'https://i.pravatar.cc/150?img=6' },
-  { id: 7, name: 'Michael White', location: 'Kerala', score: 8300, badges: ['ArtAdmirer', 'FoodExplorer'], avatar: 'https://i.pravatar.cc/150?img=7' },
-  { id: 8, name: 'Anna Wilson', location: 'Rajasthan', score: 8100, badges: ['CityExplorer', 'SilverMedalist'], avatar: 'https://i.pravatar.cc/150?img=8' },
-  { id: 9, name: 'Chris Martin', location: 'Gujarat', score: 8000, badges: ['HeritageHunter', 'PhotoPro'], avatar: 'https://i.pravatar.cc/150?img=9' },
-  { id: 10, name: 'Lisa King', location: 'West Bengal', score: 7900, badges: ['CulturalAmbassador', 'GoldMedalist'], avatar: 'https://i.pravatar.cc/150?img=10' },
-  { id: 11, name: 'James Anderson', location: 'Haryana', score: 7700, badges: ['ArtAdmirer', 'BronzeMedalist'], avatar: 'https://i.pravatar.cc/150?img=11' },
-  { id: 12, name: 'Sophia Patel', location: 'Punjab', score: 7600, badges: ['CityExplorer', 'HeritageHunter'], avatar: 'https://i.pravatar.cc/150?img=12' },
-  { id: 13, name: 'Daniel Murphy', location: 'Odisha', score: 7500, badges: ['FoodExplorer', 'PhotoPro'], avatar: 'https://i.pravatar.cc/150?img=13' },
-  { id: 14, name: 'Olivia Garcia', location: 'Bihar', score: 7400, badges: ['CulturalAmbassador', 'SilverMedalist'], avatar: 'https://i.pravatar.cc/150?img=14' },
-  { id: 15, name: 'Ethan Wright', location: 'Madhya Pradesh', score: 7300, badges: ['ArtAdmirer', 'CityExplorer'], avatar: 'https://i.pravatar.cc/150?img=15' },
-  { id: 16, name: 'Mia Turner', location: 'Chhattisgarh', score: 7200, badges: ['FoodExplorer', 'BronzeMedalist'], avatar: 'https://i.pravatar.cc/150?img=16' },
+  { id: 1, name: 'Rajat Mehra', location: 'Maharashtra', score: 9500, badges: ['CityExplorer', 'FoodExplorer', 'GoldMedalist'], avatar: 'https://i.pravatar.cc/150?img=1' },
+  { id: 2, name: 'Shantipriya', location: 'Tamil Nadu', score: 9200, badges: ['CulturalAmbassador', 'HeritageHunter', 'SilverMedalist'], avatar: 'https://i.pravatar.cc/150?img=2' },
+  { id: 3, name: 'Arsh Tiwari', location: 'Uttar Pradesh', score: 8900, badges: ['PhotoPro', 'ArtAdmirer', 'BronzeMedalist'], avatar: 'https://i.pravatar.cc/150?img=3' },
+  { id: 4, name: 'Tanya', location: 'Delhi', score: 8700, badges: ['CityExplorer', 'FoodExplorer'], avatar: 'https://i.pravatar.cc/150?img=4' },
+  { id: 5, name: 'Aashna hegde', location: 'Maharashtra', score: 8500, badges: ['HeritageHunter', 'PhotoPro'], avatar: 'https://i.pravatar.cc/150?img=5' },
+  { id: 6, name: 'Ashi Khanna', location: 'Karnataka', score: 8400, badges: ['CulturalAmbassador', 'BronzeMedalist'], avatar: 'https://i.pravatar.cc/150?img=6' },
+  { id: 7, name: 'Manav chaddha', location: 'Kerala', score: 8300, badges: ['ArtAdmirer', 'FoodExplorer'], avatar: 'https://i.pravatar.cc/150?img=7' },
+  { id: 8, name: 'Rushali yadav', location: 'Rajasthan', score: 8100, badges: ['CityExplorer', 'SilverMedalist'], avatar: 'https://i.pravatar.cc/150?img=8' },
+  { id: 9, name: 'Sparsh', location: 'Gujarat', score: 8000, badges: ['HeritageHunter', 'PhotoPro'], avatar: 'https://i.pravatar.cc/150?img=9' },
+  { id: 10, name: 'Priya Roy', location: 'West Bengal', score: 7900, badges: ['CulturalAmbassador', 'GoldMedalist'], avatar: 'https://i.pravatar.cc/150?img=10' },
+  { id: 11, name: 'Shruti', location: 'Haryana', score: 7700, badges: ['ArtAdmirer', 'BronzeMedalist'], avatar: 'https://i.pravatar.cc/150?img=11' },
+  { id: 12, name: 'Siya Patel', location: 'Punjab', score: 7600, badges: ['CityExplorer', 'HeritageHunter'], avatar: 'https://i.pravatar.cc/150?img=12' },
+  { id: 13, name: 'Vansh', location: 'Odisha', score: 7500, badges: ['FoodExplorer', 'PhotoPro'], avatar: 'https://i.pravatar.cc/150?img=13' },
+  { id: 14, name: 'Riya sachdeva', location: 'Bihar', score: 7400, badges: ['CulturalAmbassador', 'SilverMedalist'], avatar: 'https://i.pravatar.cc/150?img=14' },
+  { id: 15, name: 'Ananya singh', location: 'Madhya Pradesh', score: 7300, badges: ['ArtAdmirer', 'CityExplorer'], avatar: 'https://i.pravatar.cc/150?img=15' },
+  { id: 16, name: 'Mia Sharma', location: 'Chhattisgarh', score: 7200, badges: ['FoodExplorer', 'BronzeMedalist'], avatar: 'https://i.pravatar.cc/150?img=16' },
   { id: 17, name: 'Alexander Scott', location: 'Goa', score: 7100, badges: ['HeritageHunter', 'PhotoPro'], avatar: 'https://i.pravatar.cc/150?img=17' },
   { id: 18, name: 'Ava Evans', location: 'Assam', score: 7000, badges: ['CityExplorer', 'CulturalAmbassador'], avatar: 'https://i.pravatar.cc/150?img=18' },
-  { id: 19, name: 'Benjamin Baker', location: 'Jharkhand', score: 6900, badges: ['FoodExplorer', 'GoldMedalist'], avatar: 'https://i.pravatar.cc/150?img=19' },
+  { id: 19, name: 'Benjamin ', location: 'Jharkhand', score: 6900, badges: ['FoodExplorer', 'GoldMedalist'], avatar: 'https://i.pravatar.cc/150?img=19' },
   { id: 20, name: 'Charlotte Moore', location: 'Himachal Pradesh', score: 6800, badges: ['ArtAdmirer', 'SilverMedalist'], avatar: 'https://i.pravatar.cc/150?img=20' }
 ];
 
@@ -50,12 +50,12 @@ const badges = {
   CityExplorer: { icon: <FaMapMarkerAlt />, color: 'bg-blue-500' },
   CulturalAmbassador: { icon: <FaLandmark />, color: 'bg-purple-500' },
   FoodExplorer: { icon: <FaUtensils />, color: 'bg-green-500' },
-  HeritageHunter: { icon: <FaLandmark />, color: 'bg-yellow-500' },
+  HeritageHunter: { icon: <FaLandmark />, color: 'bg-yellow-700' },
   ArtAdmirer: { icon: <FaPalette />, color: 'bg-pink-500' },
   PhotoPro: { icon: <FaCamera />, color: 'bg-indigo-500' },
-  GoldMedalist: { icon: <FaMedal className="text-yellow-400" />, color: 'bg-yellow-100' },
-  SilverMedalist: { icon: <FaMedal className="text-gray-400" />, color: 'bg-gray-100' },
-  BronzeMedalist: { icon: <FaMedal className="text-orange-400" />, color: 'bg-orange-100' },
+  GoldMedalist: { icon: <FaMedal className="text-yelloe-700" />, color: 'bg-yellow-400' },
+  SilverMedalist: { icon: <FaMedal className="text-grey-800" />, color: 'bg-gray-400' },
+  BronzeMedalist: { icon: <FaMedal className="text-orange-600" />, color: 'bg-orange-400' },
 };
 
 const states = ['Maharashtra', 'Tamil Nadu', 'Uttar Pradesh', 'Delhi'];
@@ -97,13 +97,13 @@ const Leaderboard = () => {
   };
 
   return (
-    <div className="container mx-auto px-4 py-8">
-      <h1 className="text-4xl font-bold text-center mb-8 text-blue-600">Tourism Adventure Leaderboard</h1>
+    <div className="container mx-auto px-4 py-8 bg-gradient-to-b from-mint to-light-green ">
+      <h1 className="text-4xl font-bold text-center mb-8 text-teal-950">Tourism Adventure Leaderboard</h1>
       <div className="mb-4">
-        <label htmlFor="stateSelect" className="block text-sm font-medium text-gray-700">Select Region:</label>
+        <label htmlFor="stateSelect" className="block text-l font-large text-emerald-900 font-bold">Select Region:</label>
         <select
           id="stateSelect"
-          className="mt-1 block w-full pl-3 pr-10 py-2 text-base border-gray-300 focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm rounded-md"
+          className="mt-1 block w-full pl-3 pr-10 py-2 text-base bg-teal-50 border-mint focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm rounded-md"
           value={selectedState}
           onChange={(e) => setSelectedState(e.target.value)}
         >
@@ -116,8 +116,8 @@ const Leaderboard = () => {
 
       <div className="bg-white shadow-xl rounded-lg overflow-hidden">
         <div className="px-4 py-5 sm:px-6 bg-blue-50">
-          <h3 className="text-lg leading-6 font-medium text-gray-900">{selectedState} Leaderboard</h3>
-          <p className="mt-1 max-w-2xl text-sm text-gray-500">Top adventurers and their achievements</p>
+          <h3 className="text-lg leading-6 font-medium text-teal-900">{selectedState} Leaderboard</h3>
+          <p className="mt-1 max-w-2xl text-sm text-teal-600 text-bold">Top adventurers and their achievements</p>
         </div>
         <ul className="divide-y divide-gray-200">
           {getLeaderboardData().map((user, index) => (
