@@ -8,25 +8,25 @@ const CulturalActivities = () => {
     {
       name: 'Mysore Dasara',
       description: 'A 10-day festival celebrating the victory of good over evil.',
-      image: 'https://www.karnatakatourism.org/wp-content/uploads/2020/06/Mysore-Dasara-1.jpg',
+      image: 'mysore.jpg',
       date: 'October 15-24, 2023',
     },
     {
       name: 'Hampi Utsav',
       description: 'A celebration of the rich cultural heritage of Hampi.',
-      image: 'https://www.karnatakatourism.org/wp-content/uploads/2020/06/Hampi-Utsav-1.jpg',
+      image: 'hampi.jpg',
       date: 'November 3-5, 2023',
     },
     {
       name: 'Yakshagana Performance',
       description: 'Traditional theater form combining dance, music, and dialogue.',
-      image: 'https://www.karnatakatourism.org/wp-content/uploads/2020/06/Yakshagana-1.jpg',
+      image: 'yakshagana.jpg',
       date: 'Every Saturday',
     },
     {
       name: 'Pattadakal Dance Festival',
       description: 'Classical dance performances at the UNESCO World Heritage site.',
-      image: 'https://www.karnatakatourism.org/wp-content/uploads/2020/06/Pattadakal-Dance-Festival-1.jpg',
+      image: 'patt.jpg',
       date: 'January 15-17, 2024',
     },
   ];
@@ -39,7 +39,7 @@ const CulturalActivities = () => {
       </Link>
       <h1 className="text-4xl font-bold mb-8 text-yellow-800 flex items-center">
         <FaTheaterMasks className="mr-4" />
-        Cultural Activities in Karnataka
+        Cultural Activities in Udupi
       </h1>
       <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
         {activities.map((activity, index) => (

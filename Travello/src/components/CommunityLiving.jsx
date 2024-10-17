@@ -8,25 +8,25 @@ const CommunityLiving = () => {
     {
       name: 'Malnad Farmstay',
       description: 'Experience rural life in the Western Ghats, participate in farming activities.',
-      image: 'https://www.karnatakatourism.org/wp-content/uploads/2020/06/Malnad-1.jpg',
+      image: 'malnad.jpg',
       duration: '2-3 days',
     },
     {
       name: 'Coastal Fishing Village Stay',
       description: 'Live with a fishing family, learn traditional fishing methods.',
-      image: 'https://www.karnatakatourism.org/wp-content/uploads/2020/06/Coastal-Karnataka-1.jpg',
+      image: 'coastel.jpg',
       duration: '2-4 days',
     },
     {
       name: 'Tribal Village Experience',
       description: 'Immerse yourself in the culture of indigenous Soliga tribe.',
-      image: 'https://www.karnatakatourism.org/wp-content/uploads/2020/06/Soliga-Tribe-1.jpg',
+      image: 'tribal.jpg',
       duration: '3-5 days',
     },
     {
       name: 'Urban Family Homestay',
       description: 'Stay with a local family in Bangalore, experience city life.',
-      image: 'https://www.karnatakatourism.org/wp-content/uploads/2020/06/Bangalore-1.jpg',
+      image: 'urban.jpg',
       duration: '1-7days',
     },
   ];

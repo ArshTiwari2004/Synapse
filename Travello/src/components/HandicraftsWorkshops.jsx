@@ -8,25 +8,25 @@ const HandicraftsWorkshops = () => {
     {
       name: 'Channapatna Toy Making',
       description: 'Learn to make colorful wooden toys using traditional techniques.',
-      image: 'https://www.karnatakatourism.org/wp-content/uploads/2020/06/Channapatna-Toys-1.jpg',
+      image: 'toy.jpg',
       duration: '3 hours',
     },
     {
       name: 'Bidriware Workshop',
       description: 'Create intricate metal artifacts with silver inlay work.',
-      image: 'https://www.karnatakatourism.org/wp-content/uploads/2020/06/Bidriware-1.jpg',
+      image: 'workshop.jpg',
       duration: '4 hours',
     },
     {
       name: 'Mysore Silk Painting',
       description: 'Paint on pure Mysore silk using traditional motifs and techniques.',
-      image: 'https://www.karnatakatourism.org/wp-content/uploads/2020/06/Mysore-Silk-1.jpg',
+      image: 'silk.jpeg',
       duration: '2 hours',
     },
     {
       name: 'Sandalwood Carving',
       description: 'Learn the art of carving intricate designs on fragrant sandalwood.',
-      image: 'https://www.karnatakatourism.org/wp-content/uploads/2020/06/Sandalwood-Carving-1.jpg',
+      image: 'carving.jpeg',
       duration: '5 hours',
     },
   ];
@@ -39,7 +39,7 @@ const HandicraftsWorkshops = () => {
       </Link>
       <h1 className="text-4xl font-bold mb-8 text-blue-800 flex items-center">
         <FaPaintBrush className="mr-4" />
-        Handicrafts Workshops in Karnataka
+        Handicrafts Workshops in Karnatka
       </h1>
       <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
         {workshops.map((workshop, index) => (
