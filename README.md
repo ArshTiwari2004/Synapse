@@ -32,14 +32,42 @@ Follow the steps below to set up the Travello project on your local machine.
 1. **Clone the repository**
    ```bash
    git clone https://github.com/ArshTiwari2004/Travello.git
-
    ```
-cd server
+For running the backend:
 
+```bash
+cd server
 ```
+```bash
 npm install
 ```
+```bash
+# Server Configuration
+PORT=5000
 
+# JWT Configuration
+JWT_SECRET=your-secure-jwt-secret-key-here
+
+# MongoDB Configuration
+MONGO_URI=your-mongodb-uri-here
+```
+```bash
+npm run dev
+```
+
+For running the frontend :
+
+Open another terminal for running frontend
+
+```bash
+cd Travello
+```
+```bash
+npm install
+```
+```bash
+npm run dev
+```
 
 
 
