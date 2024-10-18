@@ -24,7 +24,7 @@ Website:
 
 ## Installation and Setup
 
-Follow the steps below to set up the Travello project on your local machine.
+Follow these steps to run the project locally:
 
 1. **Clone the repository**
    ```bash
@@ -83,25 +83,4 @@ Access the application only on [http://localhost:5173/](http://localhost:5173/)
 
 
 
-Follow these steps to run the project locally:
 
-1. Clone the repository:
-
-    ```bash
-    git clone https://github.com/Synapse/manipal-hackathon-2024.git
-    cd manipal-hackathon-2024
-    ```
-
-1. Install dependencies
-
-    ```bash
-    npm install
-    ```
-
-1. Start server
-
-    ```bash
-    npm run start
-    ```
-
-1. Access the application at http://localhost:3000
