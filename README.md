@@ -16,9 +16,6 @@ Website:
 - Gamification: Travello rewards users with points, badges, and achievements for completing challenges, encouraging exploration. As users level up, they unlock exclusive content and discover hidden locations.
 - Challenges & Quest: Travello offers gamified experiences with photo challenges, leaderboards, and culture-based quests, enhancing user engagement. Successful participation earns rewards, making travel both fun and competitive.
 
-## 🟢 Access
-
-🌐 Website link: https://example.com
 
 
 
