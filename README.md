@@ -40,6 +40,7 @@ cd server
 npm install
 ```
 In the root directory of Server create a .env file and enter the following configuration
+
 ```bash
 # Server Configuration
 PORT=5000
@@ -53,6 +54,19 @@ MONGO_URI=your-mongodb-uri-here
 ```bash
 npm run dev
 ```
+
+## Environment Setup
+
+Before running the project, you'll need to set up some environment variables:
+
+ *MongoDB URI*: 
+   - If you don't have a MongoDB account, sign up on [MongoDB Atlas](https://www.mongodb.com/cloud/atlas).
+   - Create a new cluster and a database.
+   - Obtain your MongoDB connection string (URI) from the MongoDB Atlas dashboard.
+   - Replace <password> and <dbname> in the URI with your MongoDB password and database name.
+
+
+
 
 For running the frontend :
 
