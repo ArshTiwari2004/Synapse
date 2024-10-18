@@ -38,6 +38,7 @@ cd server
 
 ```
 npm install
+```
 
 
 
