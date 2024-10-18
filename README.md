@@ -35,10 +35,11 @@ For running the backend:
 ```bash
 cd server
 ```
-In the root directory of Server create a .env file and enter the following configuration
+
 ```bash
 npm install
 ```
+In the root directory of Server create a .env file and enter the following configuration
 ```bash
 # Server Configuration
 PORT=5000
