@@ -33,10 +33,11 @@ Follow the steps below to set up the Travello project on your local machine.
    ```bash
    git clone https://github.com/ArshTiwari2004/Travello.git
 
-```
+   ```
 cd server
 
 ```
+npm install
 
 
 
