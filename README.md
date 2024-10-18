@@ -6,7 +6,7 @@
 
 ## 📜 Introduction
 
-Our project allows `<insert consumer segment>` to do A, B and C by D, E and F. We have utilised X, Y and Z technologies to do P, Q and R.
+Tourism in India often lacks engagement, leading to missed opportunities for travelers to explore local culture.To overcome all these problems ,We are developing a gamified tourism platform designed to revolutionize how travelers explore their destinations. Our application will guide users to hidden attractions and cultural experiences through interactive challenges and quests, transforming the act of discovery into an engaging adventure. Leveraging AI-driven personalization, users will receive customized itineraries that adapt to their preferences and real-time conditions. This platform not only enriches the travel experience but also fosters a deeper connection with local culture, making every journey memorable.
 
 ## ✨ Features
 
@@ -43,7 +43,7 @@ npm install
 PORT=5000
 
 # JWT Configuration
-JWT_SECRET=your-secure-jwt-secret-key-here
+JWT_SECRET= "a4V#9@c7eM^f8&nL!t3QzY*2WjD$bG7"
 
 # MongoDB Configuration
 MONGO_URI=your-mongodb-uri-here
