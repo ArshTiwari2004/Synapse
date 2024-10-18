@@ -30,7 +30,11 @@ Follow these steps to run the project locally:
    ```bash
    git clone https://github.com/ArshTiwari2004/Travello.git
    ```
+```bash
+cd Travello
+```
 For running the backend:
+
 
 ```bash
 cd server
