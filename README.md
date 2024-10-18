@@ -69,6 +69,9 @@ npm run dev
 
 Access the application only on [http://localhost:5173/](http://localhost:5173/)
 
+PPT Link :[https://www.canva.com/design/DAGRmUqx4zc/Z-kPH1L-QoIF-AjqNOYwjA/edit?utm_content=DAGRmUqx4zc&utm_campaign=designshare&utm_medium=link2&utm_source=sharebutton](
+https://www.canva.com/design/DAGRmUqx4zc/Z-kPH1L-QoIF-AjqNOYwjA/edit?utm_content=DAGRmUqx4zc&utm_campaign=designshare&utm_medium=link2&utm_source=sharebutton)
+
 
 
 
