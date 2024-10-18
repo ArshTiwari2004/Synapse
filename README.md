@@ -21,38 +21,39 @@ Website:
 🌐 Website link: https://example.com
 
 
-## 📦 Instructions For Local Deployment With Docker (Optional)
 
-To deploy the application locally using docker, follow these steps:
 
-1. Clone the repository:
 
-    ```bash
-    git clone https://github.com/Synapse/manipal-hackathon-2024.git
-    cd manipal-hackathon-2024
-    ```
 
-1. Build the docker image
+## Installation and Setup
 
-    ```bash
-    sudo docker build -t hackathon .
-    ```
+Follow the steps below to set up the Travello project on your local machine.
 
-1. Start a container using the built image and expose necessary ports
-
-    ```bash
-    sudo docker run -it --rm -p 3000:3000 hackathon
-    ```
-
-1. Access the application at http://localhost:3000
-
-## ⚙️ Instructions For Local Deployment Without Docker
+1. **Clone the repository**
+   ```bash
+   git clone https://github.com/ArshTiwari2004/Travello.git
 
 ```
-Python version: 3.10
+cd server
 
-Operating system: Ubuntu 22
 ```
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 Follow these steps to run the project locally:
 
