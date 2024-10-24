@@ -5,7 +5,7 @@ import { HiUser, HiMail, HiLockClosed, HiPhone } from 'react-icons/hi';
 import { FcGoogle } from 'react-icons/fc';
 import { useNavigate } from 'react-router-dom';
 import toast from 'react-hot-toast';
-import { auth, googleProvider } from '../../Server/config/firebase.js';
+import { auth, googleProvider } from '../../server/config/firebase.js';
 import { signInWithPopup } from 'firebase/auth';
 
 const Signup = () => {
