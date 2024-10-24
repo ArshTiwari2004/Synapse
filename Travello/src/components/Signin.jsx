@@ -23,27 +23,50 @@ const Login = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    try {
-      const response = await axios.post('http://localhost:5000/api/auth/login', formData, {
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        withCredentials: true,
-      });
+    // Sample user credentials for testing
+    const sampleEmail = 'testuser@example.com';
+    const samplePassword = 'password123';
 
-      console.log(response)
+    // Check if the entered credentials match the sample user
+    if (formData.email === sampleEmail && formData.password === samplePassword) {
+      // Bypass the backend call and login directly
+      const sampleToken = 'sample-token'; // You can set any value for the token
+      const sampleUser = { email: sampleEmail, name: 'Test User' };
 
-      const { token, user } = response.data;
+      localStorage.setItem('token', sampleToken);
+      localStorage.setItem('user', JSON.stringify(sampleUser));
 
-      localStorage.setItem('token', token);
-      localStorage.setItem('user', JSON.stringify(user));
-
-      toast.success("Login Successful");
+      toast.success('Login Successful');
       navigate('/dashboard');
+    } else {
+      try {
+        const response = await axios.post(
+          'http://localhost:5000/api/auth/login',
+          formData,
+          {
+            headers: {
+              'Content-Type': 'application/json',
+            },
+            withCredentials: true,
+          }
+        );
 
-    } catch (error) {
-      console.error('Login error:', error);
-      toast.error("Login failed: " + error.response?.data?.message || "An error occurred");
+        console.log(response);
+
+        const { token, user } = response.data;
+
+        localStorage.setItem('token', token);
+        localStorage.setItem('user', JSON.stringify(user));
+
+        toast.success('Login Successful');
+        navigate('/dashboard');
+      } catch (error) {
+        console.error('Login error:', error);
+        toast.error(
+          'Login failed: ' +
+            (error.response?.data?.message || 'An error occurred')
+        );
+      }
     }
   };
 
@@ -52,12 +75,16 @@ const Login = () => {
       const result = await signInWithPopup(auth, googleProvider);
       const token = await result.user.getIdToken();
 
-      const response = await axios.post('http://localhost:5000/api/auth/google', {
-        token,
-      }, {
-        withCredentials: true,  // Send cookies 
-      });
-      toast.success("Logged in ! ")
+      const response = await axios.post(
+        'http://localhost:5000/api/auth/google',
+        {
+          token,
+        },
+        {
+          withCredentials: true, // Send cookies
+        }
+      );
+      toast.success('Logged in !');
       console.log('Google Sign-In success:', response.data);
       navigate('/dashboard');
     } catch (error) {
@@ -121,7 +148,9 @@ const Login = () => {
         </div>
         <p className="mt-4 text-gray-600">
           Don't have an account?
-          <a href="/signup" className="text-emerald-800 hover:underline"> Signup</a>
+          <a href="/signup" className="text-emerald-800 hover:underline">
+            Signup
+          </a>
         </p>
       </div>
     </div>
