@@ -2,11 +2,8 @@ import React, { useState } from 'react';
 import axios from 'axios';
 import countries from './countries';
 import { HiUser, HiMail, HiLockClosed, HiPhone } from 'react-icons/hi';
-import { FcGoogle } from 'react-icons/fc';
 import { useNavigate } from 'react-router-dom';
 import toast from 'react-hot-toast';
-import { auth, googleProvider } from '../../server/config/firebase.js';
-import { signInWithPopup } from 'firebase/auth';
 
 const Signup = () => {
   const navigate = useNavigate();
@@ -61,24 +58,6 @@ const Signup = () => {
     } catch (error) {
       console.error('Error during registration:', error.response ? error.response.data : error.message);
       toast.error('Registration Failed');
-    }
-  };
-
-  const handleGoogleSignIn = async () => {
-    try {
-      const result = await signInWithPopup(auth, googleProvider);
-      const token = await result.user.getIdToken();
-
-      const response = await axios.post('http://localhost:5000/api/auth/google', {
-        token,
-      }, {
-        withCredentials: true,  // Send cookies to server
-      });
-      toast.success("Logged in ! ")
-      console.log('Google Sign-In success:', response.data);
-      navigate('/dashboard');
-    } catch (error) {
-      console.error('Error with Google Sign-In:', error.message);
     }
   };
 
@@ -227,16 +206,6 @@ const Signup = () => {
             Create Account
           </button>
         </form>
-        <div className="mt-4 flex items-center justify-center">
-          <p className="text-gray-600">or continue with</p>
-          <button
-            onClick={handleGoogleSignIn}
-            className="ml-4 flex items-center p-3 bg-white border border-emerald-800 text-emerald-800 rounded hover:bg-emerald-100 transition duration-200"
-          >
-            <FcGoogle className="w-6 h-6 mr-2" />
-            Google
-          </button>
-        </div>
       </div>
     </div>
   );
